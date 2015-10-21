@@ -1,4 +1,5 @@
 # Install NVM
+sudo apt-get update
 sudo apt-get install install build-essential libssl-dev
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash #Notice the version may change
 source ~/.nvm/nvm.sh
