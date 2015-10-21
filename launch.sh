@@ -7,5 +7,5 @@ $VM_SHELL "sudo ssh-keyscan github.com >> ~/.ssh/known_hosts"
 $VM_SHELL "rm -rf MozITP" # Cleanup old repo
 $VM_SHELL "git clone $THIS_REPO_URL" #TODO: Do we need special folder?
 
-$VM_SHELL "bash ./MozITP/scripts/greet.sh"
+$VM_SHELL "./MozITP/scripts/menu.sh"
 # cd ..
