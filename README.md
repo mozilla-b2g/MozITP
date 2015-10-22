@@ -12,3 +12,16 @@ launch.sh
 ```
 A Vagrant VM will be launched
 
+* Stop the VM
+
+```
+cd vm
+vagrant halt
+```
+
+* Reset the VM to factory default
+
+```
+cd vm
+vagrant destroy # answer yes if asked
+```
