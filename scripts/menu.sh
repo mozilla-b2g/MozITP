@@ -2,7 +2,7 @@
 
 echo "What would you like to do?"
 echo ""
-echo "  1) Install Gaia Integration Test in JavaScript (GIJ)"
+echo "  1) Install and run Gaia Integration Test in JavaScript (GIJ)"
 echo "  0) Exit"
 echo ""
 echo -n "Please select [ENTER]:"
