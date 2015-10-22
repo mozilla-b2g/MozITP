@@ -8,6 +8,7 @@ nvm use 0.12
 
 # Get gaia code
 sudo apt-get install -y libfontconfig1 libasound2 libgtk2.0-0 python-pip
+sudo apt-get install -y xvfb
 git clone https://github.com/mozilla-b2g/gaia.git
 cd gaia
-make test-integration
+xvfb-run make test-integration
