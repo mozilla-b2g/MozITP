@@ -14,6 +14,6 @@ sudo apt-get install -y lxde-core lightdm-gtk-greeter xinit
 #Name=MozITP
 #Exec=uxterm
 
-cp ~/MozITP/scripts/uxterm-gij.desktop /etc/xdg/autostart/uxterm-gij.desktop
+sudo cp ~/MozITP/scripts/uxterm-gij.desktop /etc/xdg/autostart/uxterm-gij.desktop
 
 sudo startx
