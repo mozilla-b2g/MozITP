@@ -1,4 +1,3 @@
-su vagrant # Don't use root
 sudo /usr/share/debconf/fix_db.pl
 yes 1 | sudo dpkg-reconfigure dictionaries-common 
 
