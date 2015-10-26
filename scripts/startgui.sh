@@ -5,7 +5,7 @@ sudo apt-get update
 #sudo apt-get install -y lxde-core lightdm-gtk-greeter xinit
 sudo apt-get install -y lxde-core lightdm-gtk-greeter xinit
 #sudo apt-get install -y xfce4 xinit
-#update-rc.d -f lightdm remove
+update-rc.d -f lightdm remove
 #echo "uxterm" > ~/.xinitrc
 
 # Write the followin to /etc/xdg/autostart/mozitp.desktop
