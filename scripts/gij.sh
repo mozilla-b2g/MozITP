@@ -1,7 +1,13 @@
+echo $USER
+if [ $EUID -eq 0 ]; then #Don't run as root
+  su vagrant -c "/home/vagrant/MozITP/scripts/gij.sh"
+fi
+
+NVM_VER="v0.29.0"
 # Install NVM
 sudo apt-get update
 sudo apt-get install install build-essential libssl-dev
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash #Notice the version may change
+curl -o- https://raw.githubusercontent.com/creationix/nvm/$NVM_VER/install.sh | bash #Notice the version may change
 source ~/.nvm/nvm.sh
 nvm install 0.12
 nvm use 0.12
