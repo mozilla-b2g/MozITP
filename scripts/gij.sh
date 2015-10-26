@@ -1,4 +1,4 @@
-echo $USER
+#!/bin/bash
 if [ $EUID -eq 0 ]; then #Don't run as root
   su vagrant -c "/home/vagrant/MozITP/scripts/gij.sh"
 fi
