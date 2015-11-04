@@ -1,4 +1,5 @@
 ./greet.sh
+./greet_taskcluster.sh
 
 echo "What would you like to do?"
 echo ""
