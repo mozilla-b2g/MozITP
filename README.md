@@ -3,7 +3,7 @@ Mozilla Integrated Tool Package
 
 This package is a one-stop shop for Firefox OS related tools
 
-#Installation 
+# Installation 
 
 You need to install [Vagrant](https://docs.vagrantup.com/v2/installation/index.html), see more detail from this [guide](https://docs.vagrantup.com/v2/installation/index.html).
 
@@ -16,29 +16,32 @@ Then [set up USB for VirtualBox](https://help.ubuntu.com/community/VirtualBox/US
 * Run `sudo adduser <USERNAME> vboxusers`
 * Re-login or restart your PC.
 
-#Usage
+# Usage
+
+* Add execute permissions
+
+```bash
+$ chmod u+x launch.sh
+$ chmod u+x stop.sh
+```
 
 * Launch VM
 
-```
-chmod u+x launch.sh
-launch.sh
+```bash
+$ ./launch.sh
 ```
 
-A Vagrant VM will be launched
+A Vagrant VM will be launched.
 
 
 * Stop the VM
 
+```bash
+$ ./stop.sh
 ```
-cd vm
-vagrant halt
-```
-
 
 * Reset the VM to factory default
 
-```
-cd vm
-vagrant destroy # answer yes if asked
+```bash
+$ ./reset_vm.sh
 ```
