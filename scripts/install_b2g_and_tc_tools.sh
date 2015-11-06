@@ -7,6 +7,8 @@ sudo apt-get -y install python python-tk
 sudo apt-get -y install python-dev libffi-dev libssl-dev
 
 # install python packages
+sudo apt-get -y install python-setuptools
+sudo easy_install pip
 sudo pip install -U pip setuptools
 sudo pip install -U requests
 sudo pip install -U requests[security]
