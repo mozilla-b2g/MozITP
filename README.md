@@ -7,8 +7,10 @@ This package is a one-stop shop for Firefox OS related tools
 
 You need to install [Vagrant](https://docs.vagrantup.com/v2/installation/index.html), see more detail from this [guide](https://docs.vagrantup.com/v2/installation/index.html).
 
+And you also need to install the [provider](https://docs.vagrantup.com/v2/providers/index.html) for Vagrant. We will use [VirtualBox](http://www.virtualbox.org/) as default.
+
 ## Ubuntu
-* Download Debian package from [here](http://www.vagrantup.com/downloads).
+* Download Vagrant's Debian package from [here](http://www.vagrantup.com/downloads).
 * Install Vagrant by `sudo dpkg -i <PATH_TO_PKG_FILE>`
 * Install VirtualBox by `sudo apt-get install virtualbox`
 
