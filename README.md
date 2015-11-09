@@ -12,6 +12,11 @@ For Ubuntu user:
 * Install Vagrant by `sudo dpkg -i <PATH_TO_PKG_FILE>`
 * Install VirtualBox by `sudo apt-get install virtualbox`
 
+For Mac OS X user:
+* Install [Brew Cask](http://caskroom.io/).
+* Install Vagrant by `sudo brew cask vagrant; sudo brew cask vagrant-manager`
+* Install VirtualBox by `sudo brew cask virtualbox`
+
 Then [set up USB for VirtualBox](https://help.ubuntu.com/community/VirtualBox/USB) by adding your user account to vboxusers group. 
 * Run `sudo adduser <USERNAME> vboxusers`
 * Re-login or restart your PC.
