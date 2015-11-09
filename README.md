@@ -7,19 +7,20 @@ This package is a one-stop shop for Firefox OS related tools
 
 You need to install [Vagrant](https://docs.vagrantup.com/v2/installation/index.html), see more detail from this [guide](https://docs.vagrantup.com/v2/installation/index.html).
 
-For Ubuntu user:
+## Ubuntu
 * Download Debian package from [here](http://www.vagrantup.com/downloads).
 * Install Vagrant by `sudo dpkg -i <PATH_TO_PKG_FILE>`
 * Install VirtualBox by `sudo apt-get install virtualbox`
 
-For Mac OS X user:
+Then [set up USB for VirtualBox](https://help.ubuntu.com/community/VirtualBox/USB) by adding your user account to vboxusers group. 
+* Run `sudo adduser <USERNAME> vboxusers`
+* Re-login or restart your PC.
+
+## Mac OS X
 * Install [Brew Cask](http://caskroom.io/).
 * Install Vagrant by `sudo brew cask vagrant; sudo brew cask vagrant-manager`
 * Install VirtualBox by `sudo brew cask virtualbox`
 
-Then [set up USB for VirtualBox](https://help.ubuntu.com/community/VirtualBox/USB) by adding your user account to vboxusers group. 
-* Run `sudo adduser <USERNAME> vboxusers`
-* Re-login or restart your PC.
 
 # Usage
 
