@@ -58,3 +58,12 @@ $ ./stop.sh
 ```bash
 $ ./reset_vm.sh
 ```
+
+* Run GIJ (Gaia integration test in JavaScript) directly. This is very useful in automation.
+```bash
+$ ./launch.sh gij
+```
+
+
+#Troubleshooting
+* To run `launch.sh` in jenkins, use `xvfb-run`.
