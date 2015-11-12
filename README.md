@@ -9,14 +9,6 @@ You need to install [Vagrant](https://docs.vagrantup.com/v2/installation/index.h
 
 And you also need to install the [provider](https://docs.vagrantup.com/v2/providers/index.html) for Vagrant. We will use [VirtualBox](http://www.virtualbox.org/) as default.
 
-An example for installing Vagrant on Ubuntu
-
-```bash
-wget https://releases.hashicorp.com/vagrant/1.7.4/vagrant_1.7.4_x86_64.deb #version may vary
-sudo dpkg -i vagrant_1.7.4_x86_64.deb
-sudo apt-get install virtualbox
-```
-
 ## Ubuntu
 
 * Download Vagrant's Debian package from [here](http://www.vagrantup.com/downloads).
