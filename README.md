@@ -23,6 +23,11 @@ And you also need to install the [provider](https://docs.vagrantup.com/v2/provid
 * Install Vagrant by `sudo brew cask vagrant; sudo brew cask vagrant-manager`
 * Install VirtualBox by `sudo brew cask virtualbox`
 
+# Cloning the Repo
+Use `git clone` with ``--recursive`` so the `vm/` submodule are cloned too.
+```
+git clone --recursive <this repo's URL>
+```
 
 # Usage
 
