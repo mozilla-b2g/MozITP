@@ -4,6 +4,9 @@
 #fi
 
 NVM_VER="v0.29.0"
+
+echo "[ITP] Running tests for $APP"
+
 # Install NVM
 sudo apt-get update
 sudo apt-get install install build-essential libssl-dev
@@ -24,6 +27,8 @@ Xvfb :10 -ac 2> /dev/null & # Open xvfb on display 10, surpressing the error log
 export DISPLAY=:10
 # x11vnc -display :10 -clip 600x600+0+0 -localhost &
 # echo "If you want to see the simulator screen, run \`vncviewer :0\`"
+
+: ${APP=all}
 
 make test-integration
 
