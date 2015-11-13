@@ -1,7 +1,6 @@
 #!/bin/bash
 #if [ $EUID -eq 0 ]; then #Don't run as root
-  #su vagrant -c "/home/vagrant/MozITP/scripts/gij.sh"
-#fi
+  #su vagrant -c "/home/vagrant/MozITP/scripts/gij.sh" #fi
 
 NVM_VER="v0.29.0"
 
@@ -9,7 +8,7 @@ echo "[ITP] Running tests for $APP"
 
 # Install NVM
 sudo apt-get update
-sudo apt-get install install build-essential libssl-dev
+sudo apt-get install -y build-essential libssl-dev pcregrep
 curl -o- https://raw.githubusercontent.com/creationix/nvm/$NVM_VER/install.sh | bash #Notice the version may change
 source ~/.nvm/nvm.sh
 nvm install 0.12
@@ -30,8 +29,10 @@ export DISPLAY=:10
 
 : ${APP=all}
 
-make test-integration
+timestamp=$(date +"%Y%m%d-%H%M%S")
+make test-integration 2>&1 | tee gij_$timestamp.raw.log
 
 killall Xvfb
-echo "Click any key to close this window..."
-read
+cat gij_$timestamp.raw.log | pcregrep --locale en_US.UTF-8 -M "<testsuite((.|\n)*)testsuite>" > gij_$timestamp.log.xml
+# echo "Click any key to close this window..."
+# read
