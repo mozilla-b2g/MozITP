@@ -13,3 +13,5 @@ echo "  Download artifacts from Taskcluster:          "
 echo "  - Run 'taskcluster_traverse --help'           "
 echo " ============================================== "
 echo ""
+
+# TODO: interactive menu for downloading/flashing builds for different devices?
