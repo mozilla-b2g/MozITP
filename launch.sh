@@ -15,9 +15,11 @@ case $1 in
         echo "Not supported yet"
         ;;
       device)
+        $VM_SHELL "bash ~/MozITP/scripts/install_adb_fastboot.sh"
         echo "Not supported yet"
         ;;
       *)
+        $VM_SHELL "bash ~/MozITP/scripts/install_adb_fastboot.sh"
         $VM_SHELL "bash ~/MozITP/scripts/gij.sh"
         ;;
     esac
