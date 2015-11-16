@@ -1,10 +1,15 @@
+# install common modules
+./install_adb_fastboot.sh;
+./install_b2g_and_tc_tools.sh
+
+# common greeting
 ./greet.sh
 ./greet_taskcluster.sh
 
 echo "What would you like to do?"
 echo ""
 echo "  1) Install and run Gaia Integration Test in JavaScript (GIJ)"
-echo "  2) Install tools for dowloading and flashing images (b2g_util & taskcluster_util)"
+echo "  2) Install tools for downloading and flashing images (b2g_util & taskcluster_util)"
 echo "  3) Enter interactive shell (bash)"
 echo "  0) Exit"
 echo ""
@@ -16,8 +21,7 @@ case $CHOICE in
 1) ./install_adb_fastboot.sh;
    ./gij.sh
   ;;
-2) ./install_adb_fastboot.sh;
-   ./install_b2g_and_tc_tools.sh
+2) ./greet_b2g_and_tc_tools.sh
   ;;
 3) bash
   ;;

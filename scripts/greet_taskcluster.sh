@@ -3,7 +3,7 @@
 echo ""
 echo " ============================================== "
 echo "  If you want to download private artifacts     "
-echo "  from TaskCluster, please get your temporay    "
+echo "  from TaskCluster, please get your temporary   "
 echo "  credentials from:                             "
 echo "  https://auth.taskcluster.net/                 "
 echo "                                                "
