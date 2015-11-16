@@ -22,21 +22,16 @@ case $1 in
                 echo "Not supported yet"
                 ;;
             device)
-                $VM_SHELL "bash ~/MozITP/scripts/install_adb_fastboot.sh"
                 echo "Not supported yet"
                 ;;
             *)
-                $VM_SHELL "bash ~/MozITP/scripts/install_adb_fastboot.sh"
                 $VM_SHELL "bash ~/MozITP/scripts/gij.sh"
                 ;;
         esac
         ;;
     flashtool)
-        # Install Android's tools: adb and fastboot
-        $VM_SHELL "bash ~/MozITP/scripts/install_adb_fastboot.sh"
-
-        # Install B2G and Taskcluster tools
-        $VM_SHELL "bash ~/MozITP/scripts/install_b2g_and_tc_tools.sh"
+        $VM_SHELL "bash ~/MozITP/scripts/greet_b2g_and_tc_tools.sh"
+        $VM_SHELL "bash"
         ;;
     *)
         $VM_SHELL "cd ./MozITP/scripts/; ./menu.sh"
