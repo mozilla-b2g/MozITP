@@ -34,5 +34,7 @@ make test-integration 2>&1 | tee gij_$timestamp.raw.log
 
 killall Xvfb
 cat gij_$timestamp.raw.log | pcregrep --locale en_US.UTF-8 -M "<testsuite((.|\n)*)testsuite>" > gij_$timestamp.log.xml
+
+cp gij_$timestamp.log.xml ~/shared
 # echo "Click any key to close this window..."
 # read
