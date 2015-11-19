@@ -2,6 +2,7 @@
 
 THIS_REPO_URL=$(git config --get remote.origin.url | sed 's/git@github.com:/https:\/\/github.com\//g' )
 cd vm
+vagrant plugin install vagrant-scp
 vagrant up
 VM_SHELL="vagrant ssh -c"
 
