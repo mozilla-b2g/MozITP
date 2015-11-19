@@ -17,7 +17,7 @@ case $1 in
     gij)
         case $2 in
             simulator)
-                $VM_SHELL "bash ~/MozITP/scripts/gij.sh"
+                $VM_SHELL "export APP=$APP; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP
                 ;;
             emulator)
                 echo "Not supported yet"
@@ -26,7 +26,7 @@ case $1 in
                 echo "Not supported yet"
                 ;;
             *)
-                $VM_SHELL "bash ~/MozITP/scripts/gij.sh"
+                $VM_SHELL "export APP=$APP; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP
                 ;;
         esac
         ;;

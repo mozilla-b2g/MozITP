@@ -21,6 +21,8 @@ sudo apt-get install -y xvfb
 git clone https://github.com/mozilla-b2g/gaia.git ~/gaia --depth=3 # shallow clone
 cd ~/gaia
 
+npm install -g node-gyp # Resolve the node-gyp rebuild hang problem
+
 # Headless run
 Xvfb :10 -ac 2> /dev/null & # Open xvfb on display 10, surpressing the error log
 export DISPLAY=:10
