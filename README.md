@@ -60,8 +60,15 @@ $ ./reset_vm.sh
 ```
 
 * Run GIJ (Gaia integration test in JavaScript) directly. This is very useful in automation.
+
 ```bash
 $ ./launch.sh gij
+```
+
+* Run GIJ on specific app 
+
+```bash
+$ export APP=video; ./launch.sh gij # The `export` is important, don't miss it
 ```
 
 
