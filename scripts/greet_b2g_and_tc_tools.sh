@@ -5,6 +5,7 @@ echo ""
 echo " ============================================== "
 echo "  Get temporary credentials from:               "
 echo "  - https://auth.taskcluster.net/               "
+echo "  - or run './get_credentials.sh'               "
 echo ""
 echo "  Flash B2G builds:                             "
 echo "  - Run 'b2g_flash_taskcluster --help'          "
@@ -26,12 +27,13 @@ function setup_credentials() {
     echo "  and sign-in to get Temporary Credentials.     "
     echo " ============================================== "
     echo ""
-    read -p "Enter your ClientId? [Enter]
-" -s CLIENT_ID
-    read -p "Enter your AccessToken? [Enter]
-" -s ACCESS_TOKEN
-    read -p "Enter your Certificate? [Enter]
-" -s CERT
+    read -p "
+Enter your ClientId? [Enter]" -s CLIENT_ID
+    read -p "
+Enter your AccessToken? [Enter]" -s ACCESS_TOKEN
+    read -p "
+Enter your Certificate? [Enter]" -s CERT
+    echo ""
 
     touch $FILE_PATH
     echo -e "{\n\"clientId\": \"${CLIENT_ID}\",\n\"accessToken\": \"${ACCESS_TOKEN}\",\n\"certificate\": ${CERT}\n}" > $FILE_PATH
@@ -57,7 +59,7 @@ else
         *)
             echo "Keep going..."
             ;;
-        esac
+    esac
 fi
 
 
