@@ -12,6 +12,6 @@ sudo easy_install pip
 sudo pip install -U pip setuptools
 sudo pip install -U requests
 sudo pip install -U requests[security]
-sudo pip install -U taskcluster_util==0.0.24
-sudo pip install -U b2g_util==0.0.14
 
+# b2g-util will install taskcluster-util
+sudo pip install -U b2g-util==0.0.15
