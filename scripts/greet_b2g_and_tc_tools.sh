@@ -179,10 +179,16 @@ esac
 
 CUR_DIR=`pwd`
 DATE=`date +%Y-%m-%d`
-DEST_DIR="${CUR_DIR}/DATE/"
+DEST_DIR="${CUR_DIR}/${DATE}"
 
 echo "Download ${IMAGE_NAME} from ${NAMESPACE} to ${DEST_DIR} ..."
 taskcluster_download -n ${NAMESPACE} -a ${IMAGE_PATH} -d ${DEST_DIR}
+DL_RET=$?
+if [[ ${DL_RET} -ne 0 ]]
+then
+    echo "Download failed!"
+    exit 1
+fi
 echo "Download finished."
 
 echo "Unzip ..."
