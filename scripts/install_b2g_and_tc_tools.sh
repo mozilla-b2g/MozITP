@@ -4,7 +4,7 @@
 sudo apt-get -y install python python-tk
 
 # install packages for security module
-sudo apt-get -y install python-dev libffi-dev libssl-dev
+sudo apt-get -y install python-dev libffi-dev libssl-dev zip unzip
 
 # install python packages
 sudo apt-get -y install python-setuptools

@@ -127,6 +127,9 @@ function select_branch() {
     done
 }
 
+
+# flush the stdout stream
+DEVICE=`adb shell getprop ro.product.device 2> /dev/null`
 DEVICE=`adb shell getprop ro.product.device 2> /dev/null`
 RET=$?
 if [[ ${RET} -ne 0 ]]
