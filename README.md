@@ -46,6 +46,9 @@ $ ./launch.sh
 
 A Vagrant VM will be launched.
 
+You should see something like this:
+
+![menu](https://raw.githubusercontent.com/Mozilla-TWQA/MozITP/master/menu.png)
 
 * Stop the VM
 
@@ -74,3 +77,9 @@ $ export APP=video; ./launch.sh gij # The `export` is important, don't miss it
 
 #Troubleshooting
 * To run `launch.sh` in jenkins, use `xvfb-run`.
+
+#Supported Platforms
+* Linux
+* OS X
+* (We will support windows if enought people ask for it)
+* Flashable devices: Aries (Sony Z3C), Flame
