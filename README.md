@@ -20,8 +20,8 @@ And you also need to install the [provider](https://docs.vagrantup.com/v2/provid
 ## Mac OS X
 
 * Install [Brew Cask](http://caskroom.io/).
-* Install Vagrant by `sudo brew cask vagrant; sudo brew cask vagrant-manager`
-* Install VirtualBox by `sudo brew cask virtualbox`
+* Install Vagrant by `sudo brew cask install vagrant; sudo brew cask install vagrant-manager`
+* Install VirtualBox by `sudo brew cask install virtualbox`
 
 # Cloning the Repo
 Use `git clone` with ``--recursive`` so the `vm/` submodule are cloned too.
