@@ -2,16 +2,18 @@
 
 THIS_REPO_URL=$(git config --get remote.origin.url | sed 's/git@github.com:/https:\/\/github.com\//g' )
 cd vm
-vagrant plugin install vagrant-scp
+if ! vagrant -h | grep scp; then
+  vagrant plugin install vagrant-scp
+fi
 vagrant up
 VM_SHELL="vagrant ssh -c"
 
+vagrant scp ../. default:~/MozITP
 $VM_SHELL "cat | bash /dev/stdin $THIS_REPO_URL" < ../scripts/provision.sh
 
 # install common modules
 $VM_SHELL "bash ~/MozITP/scripts/install_adb_fastboot.sh"
 $VM_SHELL "bash ~/MozITP/scripts/install_b2g_and_tc_tools.sh"
-
 
 case $1 in 
     gij)
