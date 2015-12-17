@@ -3,6 +3,7 @@
   #su vagrant -c "/home/vagrant/MozITP/scripts/gij.sh" #fi
 
 NVM_VER="v0.29.0"
+NODE_VER="4.2.2"
 
 echo "[ITP] Running tests for $APP"
 
@@ -11,8 +12,8 @@ sudo apt-get update
 sudo apt-get install -y build-essential libssl-dev pcregrep
 curl -o- https://raw.githubusercontent.com/creationix/nvm/$NVM_VER/install.sh | bash #Notice the version may change
 source ~/.nvm/nvm.sh
-nvm install 0.12
-nvm use 0.12
+nvm install $NODE_VER
+nvm use $NODE_VER
 
 # Get gaia code
 sudo apt-get install -y libfontconfig1 libasound2 libgtk2.0-0 python-pip

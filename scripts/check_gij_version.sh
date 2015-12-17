@@ -1,8 +1,10 @@
 echo -en "gaia version:\t"
-pushd ~/gaia
+cd ~/gaia 
 git --no-pager log -n 1 --pretty=format:"%H" 
+echo ""
+echo -en "last commit:\t"
 git --no-pager log -n 1 --pretty=format:"%aN %ad" 
-popd
+echo ""
 echo -en "node version:\t"
 node -v
 echo -en "npm version:\t"
