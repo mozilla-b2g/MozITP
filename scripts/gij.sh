@@ -9,7 +9,7 @@ echo "[ITP] Running tests for $APP"
 
 # Install NVM
 sudo apt-get update
-sudo apt-get install -y build-essential libssl-dev pcregrep
+sudo apt-get install -y build-essential libssl-dev pcregrep clang
 curl -o- https://raw.githubusercontent.com/creationix/nvm/$NVM_VER/install.sh | bash #Notice the version may change
 source ~/.nvm/nvm.sh
 nvm install $NODE_VER
