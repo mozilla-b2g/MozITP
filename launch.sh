@@ -19,7 +19,7 @@ case $1 in
     gij)
         case $2 in
             simulator)
-                $VM_SHELL "export APP=$APP; export REPORTER=$REPORTER; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP -oSendEnv=REPORTER
+                $VM_SHELL "export APP=$APP; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP -oSendEnv=REPORTER
                 ;;
             emulator)
                 echo "Not supported yet"
@@ -28,7 +28,7 @@ case $1 in
                 echo "Not supported yet"
                 ;;
             *)
-                $VM_SHELL "export APP=$APP; export REPORTER=$REPORTER; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP -oSendEnv=REPORTER
+                $VM_SHELL "export APP=$APP; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP -oSendEnv=REPORTER
                 ;;
         esac
         ;;
