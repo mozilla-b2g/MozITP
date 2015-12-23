@@ -39,12 +39,13 @@ export DISPLAY=:10
 : ${APP=all}
 
 timestamp=$(date +"%Y%m%d-%H%M%S")
-export NODE_DEBUG=*
-export HOST_LOG=stdout
+#export NODE_DEBUG=*
+#export HOST_LOG=stdout
 make test-integration 2>&1 | tee gij_$timestamp.raw.log
 
 killall Xvfb
-cat gij_$timestamp.raw.log | pcregrep --locale en_US.UTF-8 -M "<testsuite((.|\n)*)testsuite>" > gij_$timestamp.log.xml
+# xunit report is not stable right now
+#cat gij_$timestamp.raw.log | pcregrep --locale en_US.UTF-8 -M "<testsuite((.|\n)*)testsuite>" > gij_$timestamp.log.xml
 
 #cp gij_$timestamp.log.xml ~/shared
 # echo "Click any key to close this window..."
