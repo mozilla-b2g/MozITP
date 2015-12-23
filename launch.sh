@@ -15,11 +15,15 @@ $VM_SHELL "cat | bash /dev/stdin $THIS_REPO_URL" < ../scripts/provision.sh
 $VM_SHELL "bash ~/MozITP/scripts/install_adb_fastboot.sh"
 $VM_SHELL "bash ~/MozITP/scripts/install_b2g_and_tc_tools.sh"
 
+function mulet_test {
+    $VM_SHELL "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER
+}
+
 case $1 in 
     gij)
         case $2 in
             simulator)
-                $VM_SHELL "export APP=$APP; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP -oSendEnv=REPORTER
+                mulet_test
                 ;;
             emulator)
                 echo "Not supported yet"
@@ -28,7 +32,7 @@ case $1 in
                 echo "Not supported yet"
                 ;;
             *)
-                $VM_SHELL "export APP=$APP; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP -oSendEnv=REPORTER
+                mulet_test
                 ;;
         esac
         ;;
