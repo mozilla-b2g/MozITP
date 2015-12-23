@@ -9,7 +9,13 @@ echo "[ITP] Running tests for $APP"
 
 # Install NVM
 sudo apt-get update
-sudo apt-get install -y build-essential libssl-dev pcregrep clang
+sudo apt-get install -y build-essential libssl-dev \
+                        libgtk-3-0 \
+                        clang \
+                        pcregrep 
+# libgtk-3-0: for running Firefox (Mulet)
+# clang: for building sockit-to-me
+# pcregrep: for parsing the xunit test report
 curl -o- https://raw.githubusercontent.com/creationix/nvm/$NVM_VER/install.sh | bash #Notice the version may change
 source ~/.nvm/nvm.sh
 nvm install $NODE_VER
@@ -33,6 +39,8 @@ export DISPLAY=:10
 : ${APP=all}
 
 timestamp=$(date +"%Y%m%d-%H%M%S")
+export NODE_DEBUG=*
+export HOST_LOG=stdout
 make test-integration 2>&1 | tee gij_$timestamp.raw.log
 
 killall Xvfb
