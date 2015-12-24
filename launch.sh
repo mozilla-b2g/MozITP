@@ -19,6 +19,10 @@ function mulet_test {
     $VM_SHELL "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER
 }
 
+function device_test {
+    $VM_SHELL "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij_device.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER
+}
+
 case $1 in 
     gij)
         case $2 in
@@ -29,7 +33,7 @@ case $1 in
                 echo "Not supported yet"
                 ;;
             device)
-                echo "Not supported yet"
+                device_test
                 ;;
             *)
                 mulet_test
