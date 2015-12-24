@@ -153,7 +153,7 @@ elif [[ "${DEVICE}" == "aries" ]]
 then
     echo "Get Aries!!"
     DEVICE_NAME="aries"
-    IMAGE_NAME="private/build/aries.zip"
+    IMAGE_NAME="aries.zip"
     select_branch
     select_eng_user
 
