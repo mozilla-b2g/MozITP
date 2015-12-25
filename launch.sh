@@ -41,7 +41,7 @@ case $1 in
         esac
         ;;
     flashtool)
-        $VM_SHELL "bash ~/MozITP/scripts/greet_b2g_and_tc_tools.sh"
+        $VM_SHELL "bash ~/MozITP/scripts/flash_b2g.sh"
         $VM_SHELL "bash"
         ;;
     *)

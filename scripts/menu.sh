@@ -20,7 +20,7 @@ case $CHOICE in
         ./gij.sh
         ;;
     2)
-        ./greet_b2g_and_tc_tools.sh
+        ./flash_b2g.sh
         ;;
     3)
         bash
