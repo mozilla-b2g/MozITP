@@ -14,6 +14,7 @@ And you also need to install the [provider](https://docs.vagrantup.com/v2/provid
 * Download Vagrant's Debian package from [here](http://www.vagrantup.com/downloads).
 * Install Vagrant by `sudo dpkg -i <PATH_TO_PKG_FILE>`
 * Install VirtualBox by `sudo apt-get install virtualbox`
+* Download and install VirtualBox Extension Pack from [here](https://www.virtualbox.org/wiki/Downloads).
 * Then [set up USB for VirtualBox](https://help.ubuntu.com/community/VirtualBox/USB) by `sudo adduser <USERNAME> vboxusers`
 * Re-login or restart your PC.
 
@@ -22,6 +23,7 @@ And you also need to install the [provider](https://docs.vagrantup.com/v2/provid
 * Install [Brew Cask](http://caskroom.io/).
 * Install Vagrant by `sudo brew cask install vagrant; sudo brew cask install vagrant-manager`
 * Install VirtualBox by `sudo brew cask install virtualbox`
+* Install VirtualBox Extension Pack by `brew cask install virtualbox-extension-pack`
 
 # Cloning the Repo
 Use `git clone` with ``--recursive`` so the `vm/` submodule are cloned too.
