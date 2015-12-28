@@ -5,11 +5,12 @@
 # If you don't want to run GIJ setup again, set the env var to GIJ_NO_SETUP=true
 NODE_VER="4.2"
 
+SCRIPT_PATH="`dirname \"$0\"`"
 echo "[ITP] Running tests for $APP"
 
 if [ -z $GIJ_NO_SETUP ]
 then 
-  ./gij_provision.sh
+  $SCRIPT_PATH/gij_provision.sh
 fi
 
 source ~/.nvm/nvm.sh
