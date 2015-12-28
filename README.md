@@ -79,6 +79,12 @@ $ export APP=video; ./launch.sh gij # The `export` is important, don't miss it
 
 #Troubleshooting
 * To run `launch.sh` in jenkins, use `xvfb-run`.
+* To use the USB device, add the user to the `vboxusers` group. 
+
+```
+sudo adduser <your username> vboxusers
+```
+* If you want to run USB device test in Jenkins, also add the `jenkins` user to the `vboxusers` group
 
 #Supported Platforms
 * Linux
