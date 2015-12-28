@@ -1,10 +1,13 @@
-if [ $(adb get-state) != "device" ]
+if [ "$(adb get-state)" != "device" ]
 then 
+  echo "Your USB devices:"
+  lsusb
+  adb devices
   echo "+============================================+"
   echo "| You need to connect your device right now. |"
   echo "| Please plug the device in and try again.   |"
   echo "+============================================+"
-  exit 
+  exit 1
 fi
 
 #flash phone
