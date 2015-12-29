@@ -23,6 +23,12 @@ function device_test {
     $VM_SHELL "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij_device.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER
 }
 
+if [ "$GAIA" ]
+then
+  vagrant scp $GAIA default:~/gaia
+  $VM_SHELL "touch ~/.users_gaia_exists"
+fi
+
 case $1 in 
     gij)
         case $2 in

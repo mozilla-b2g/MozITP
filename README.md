@@ -76,6 +76,34 @@ $ ./launch.sh gij
 $ export APP=video; ./launch.sh gij # The `export` is important, don't miss it
 ```
 
+* Using your own gaia repository
+If you already have a gaia repository, use the following commands:
+
+```bash
+export GAIA=/path/to/your/gaia
+./launch.sh
+```
+
+If you change your mind and want to use the latest gaia instead, you can 
+```
+./reset_vm.sh
+unset GAIA
+./launch.sh
+```
+
+Or if you want to keep the VM, you can
+```
+unset GAIA
+./launch.sh
+# Remove the flag
+cd vm
+vagrant ssh -c "rm ~/.users_gaia_exists"
+# Restart the VM
+./stop.sh
+./launch.sh
+```
+
+
 
 #Troubleshooting
 * To run `launch.sh` in jenkins, use `xvfb-run`.
