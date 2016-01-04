@@ -46,6 +46,9 @@ case $1 in
                 ;;
         esac
         ;;
+    gip)
+        $VM_SHELL "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip.sh -- -oSendEnv=TEST_FILES"
+        ;;
     flashtool)
         $VM_SHELL "bash ~/MozITP/scripts/flash_b2g.sh"
         $VM_SHELL "bash"
