@@ -103,7 +103,11 @@ vagrant ssh -c "rm ~/.users_gaia_exists"
 ./launch.sh
 ```
 
+* Use MozITP as the fuzzing executor
 
+```
+./launch.sh fuzz <path/to/the/generator.zip>
+```
 
 #Troubleshooting
 * To run `launch.sh` in jenkins, use `xvfb-run`.
