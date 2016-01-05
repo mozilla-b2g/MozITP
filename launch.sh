@@ -49,6 +49,17 @@ case $1 in
     gip)
         $VM_SHELL "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip.sh -- -oSendEnv=TEST_FILES"
         ;;
+    fuzz)
+        if [ -z "$2" ]
+        then
+          echo "Usage:"
+          echo "    launch.sh fuzz <testcases.zip>"
+          exit 1
+        fi
+        $VM_SHELL "mkdir ~/fuzz"
+        vagrant scp ../$2 default:~/fuzz # we are in vm/
+        $VM_SHELL "bash ~/MozITP/scripts/fuzz_executor.sh"
+        ;;
     flashtool)
         $VM_SHELL "bash ~/MozITP/scripts/flash_b2g.sh"
         $VM_SHELL "bash"
