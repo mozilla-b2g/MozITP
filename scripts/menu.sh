@@ -6,9 +6,10 @@
 
 echo "What would you like to do?"
 echo ""
-echo "  1) Install and run Gaia Integration Test in JavaScript (GIJ)"
-echo "  2) Flashing B2G Image (only Aries and Flame)"
-echo "  3) Enter interactive shell (bash)"
+echo "  1) Run Gaia Integration Test (GIJ) on Mulet"
+echo "  2) Run Gaia Integration Test (GIJ) on Real Device"
+echo "  3) Flashing B2G Image (only Aries and Flame)"
+echo "  4) Enter interactive shell (bash)"
 echo "  0) Exit"
 echo ""
 echo -n "Please select [ENTER]:"
@@ -20,9 +21,12 @@ case $CHOICE in
         ./gij.sh
         ;;
     2)
-        ./flash_b2g.sh
+        ./gij_device.sh
         ;;
     3)
+        ./flash_b2g.sh
+        ;;
+    4)
         bash
         ;;
     0)
