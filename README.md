@@ -83,3 +83,17 @@ $ export APP=video; ./launch.sh gij # The `export` is important, don't miss it
 * OS X
 * (We will support windows if enought people ask for it)
 * Flashable devices: Aries (Sony Z3C), Flame
+
+#TODOs
+
+1: High priority to implement next
+5: Low priority to implement next
+| GIJ      | Linux | OS X | Windows |
+|----------|-------|------|---------|
+| Mulet    | Done  | Done | 3       |
+| Emulator | 2     | 2    | 5       |
+| Device   | 1     | 1    | 4       |
+
+* GIP: 3
+* Reproduce TaskCluster Environment: 2
+
