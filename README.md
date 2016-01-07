@@ -4,16 +4,14 @@ Mozilla Integrated Tool Package
 This package is a one-stop shop for Firefox OS related tools
 
 # Installation 
-
-You need to install [Vagrant](https://docs.vagrantup.com/v2/installation/index.html), see more detail from this [guide](https://docs.vagrantup.com/v2/installation/index.html).
-
-And you also need to install the [provider](https://docs.vagrantup.com/v2/providers/index.html) for Vagrant. We will use [VirtualBox](http://www.virtualbox.org/) as default.
+MozITP depends on Vagrant and Virtualbox.
 
 ## Ubuntu
 
 * Download Vagrant's Debian package from [here](http://www.vagrantup.com/downloads).
 * Install Vagrant by `sudo dpkg -i <PATH_TO_PKG_FILE>`
-* Install VirtualBox by `sudo apt-get install virtualbox`
+* Install VirtualBox by `sudo apt-get install virtualbox virtualbox-dkms virtualbox-qt`
+* Reboot your computer after virutalbox installation finished
 * Download and install VirtualBox Extension Pack from [here](https://www.virtualbox.org/wiki/Downloads).
 * Then [set up USB for VirtualBox](https://help.ubuntu.com/community/VirtualBox/USB) by `sudo adduser <USERNAME> vboxusers`
 * Re-login or restart your PC.
@@ -24,6 +22,12 @@ And you also need to install the [provider](https://docs.vagrantup.com/v2/provid
 * Install Vagrant by `sudo brew cask install vagrant; sudo brew cask install vagrant-manager`
 * Install VirtualBox by `sudo brew cask install virtualbox`
 * Install VirtualBox Extension Pack by `brew cask install virtualbox-extension-pack`
+
+## Windows and other platforms
+
+You need to install [Vagrant](https://docs.vagrantup.com/v2/installation/index.html), see more detail from this [guide](https://docs.vagrantup.com/v2/installation/index.html).
+
+And you also need to install the [provider](https://docs.vagrantup.com/v2/providers/index.html) for Vagrant. We will use [VirtualBox](http://www.virtualbox.org/) as default.
 
 # Cloning the Repo
 Use `git clone` with ``--recursive`` so the `vm/` submodule are cloned too.
