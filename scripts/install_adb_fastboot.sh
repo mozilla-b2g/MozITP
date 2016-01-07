@@ -17,3 +17,5 @@ sudo chown root:root /etc/udev/rules.d/57-android.rules
 sudo chmod a+x /etc/udev/rules.d/57-android.rules
 
 sudo service udev restart
+sudo adb kill-server
+sudo adb start-server

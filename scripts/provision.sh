@@ -7,3 +7,4 @@ sudo ssh-keyscan github.com >> ~/.ssh/known_hosts
 #rm -rf MozITP # Cleanup old rep
 #git clone $ITP_REPO_URL #TODO: Do we need special folder
 
+#cp ~/MozITP/config_files/bashrc ~/.bashrc
