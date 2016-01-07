@@ -1,4 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=MozITP
-Exec=uxterm -e "/home/vagrant/MozITP/scripts/gij.sh"
