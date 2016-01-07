@@ -6,6 +6,8 @@ This package is a one-stop shop for Firefox OS related tools
 # Installation 
 MozITP depends on Vagrant and Virtualbox.
 
+By default, VM in VirtualBox will enable `VT-x/AMD-V` and `Nested Paging`, so you should enable `VT-x/AMD-V` feature of your host.
+
 ## Ubuntu
 
 * Download Vagrant's Debian package from [here](http://www.vagrantup.com/downloads).
