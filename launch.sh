@@ -13,8 +13,8 @@ vagrant scp ../. default:~/MozITP
 $VM_SHELL "cat | bash /dev/stdin $THIS_REPO_URL" < ../scripts/provision.sh
 
 # install common modules
-$VM_SHELL "bash ~/MozITP/scripts/install_adb_fastboot.sh"
-$VM_SHELL "bash ~/MozITP/scripts/install_b2g_and_tc_tools.sh"
+$VM_SHELL "bash ~/MozITP/scripts/install/adb_fastboot.sh"
+$VM_SHELL "bash ~/MozITP/scripts/install/b2g_and_tc_tools.sh"
 
 function mulet_test {
     $VM_SHELL "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER
@@ -55,7 +55,7 @@ case $1 in
         $VM_SHELL "bash"
         ;;
     *)
-        $VM_SHELL "cd ./MozITP/scripts/; ./greet.sh; ./greet_taskcluster.sh; ./menu.sh"
+        $VM_SHELL "cd ./MozITP/scripts/; ./greet/mozitp.sh; ./greet/taskcluster.sh; ./menu.sh"
         ;;
 esac
 

@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-bash /home/vagrant/MozITP/scripts/x/startgui.sh /home/vagrant/MozITP/scripts/x/b2g-installer.desktop
+MOZITP="/home/vagrant/MozITP"
+
+bash ${MOZITP}/scripts/x/startgui.sh ${MOZITP}/scripts/x/b2g-installer.desktop

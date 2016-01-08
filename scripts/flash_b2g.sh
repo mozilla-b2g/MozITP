@@ -15,6 +15,16 @@ echo "  - Run 'taskcluster_traverse --help'           "
 echo " ============================================== "
 echo ""
 
-# TODO: interactive menu for downloading/flashing builds for different devices?
-
+# call tool of b2g_util
 b2g_quick_flash
+RET=`echo $?`
+if [[ "$RET" != "0" ]]
+then
+    echo "The result of adb devices:"
+    adb devices
+    echo "Reset adb service..."
+    sudo service udev restart
+    sudo adb kill-server
+    sudo adb start-server
+    echo "Please re-connect your device, and try again."
+fi
