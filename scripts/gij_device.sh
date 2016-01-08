@@ -13,6 +13,7 @@ fi
 #flash phone
 DEVICE=`adb shell getprop ro.product.device 2> /dev/null`
 DEVICE=${DEVICE:-aries}
+DEVICE=`echo ${DEVICE} | tr -d '\r'`
 NAMESPACE=gecko.v2.mozilla-central.latest.b2g.$DEVICE-eng-opt 
 ARTIFACT=private/build/$DEVICE.zip
 DEST_DIR=~/builds
