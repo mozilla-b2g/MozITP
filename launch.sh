@@ -1,6 +1,7 @@
 #!/bin/bash
 
 THIS_REPO_URL=$(git config --get remote.origin.url | sed 's/git@github.com:/https:\/\/github.com\//g' )
+# swtich folder to sub-folder "vm"
 cd vm
 if ! vagrant -h | grep scp; then
   vagrant plugin install vagrant-scp
