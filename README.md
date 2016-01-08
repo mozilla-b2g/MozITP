@@ -23,7 +23,7 @@ By default, VM in VirtualBox will enable `VT-x/AMD-V` and `Nested Paging`, so yo
 * Install [Brew Cask](http://caskroom.io/).
 * Install Vagrant by `sudo brew cask install vagrant; sudo brew cask install vagrant-manager`
 * Install VirtualBox by `sudo brew cask install virtualbox`
-* Install VirtualBox Extension Pack by `brew cask install virtualbox-extension-pack`
+* Install VirtualBox Extension Pack by `sudo brew cask install virtualbox-extension-pack`
 
 ## Windows and other platforms
 
@@ -78,10 +78,17 @@ $ ./reset_vm.sh
 $ ./launch.sh gij
 ```
 
-* Run GIJ on specific app 
+* Run GIJ on a specific app 
 
 ```bash
 $ export APP=video; ./launch.sh gij # The `export` is important, don't miss it
+```
+
+* Run GIJ on a specific test file
+
+```bash
+export TEST_FILES=apps/clock/test/marionette/hour_format_test.js 
+./launch.sh gij
 ```
 
 * Run GIJ on device directly. The device must be connected through USB before you run the command
@@ -122,7 +129,7 @@ vagrant ssh -c "rm ~/.users_gaia_exists"
 
 
 #Troubleshooting
-* To run `launch.sh` in jenkins, use `xvfb-run`.
+* To run `launch.sh` in jenkins or over SSH, use `xvfb-run ./launch.sh`, otherwise the `vagrant up` command will fail.
 * To use the USB device, add the user to the `vboxusers` group. 
 
 ```
