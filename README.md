@@ -17,6 +17,7 @@ By default, VM in VirtualBox will enable `VT-x/AMD-V` and `Nested Paging`, so yo
 * Download and install VirtualBox Extension Pack from [here](https://www.virtualbox.org/wiki/Downloads).
 * Then [set up USB for VirtualBox](https://help.ubuntu.com/community/VirtualBox/USB) by `sudo adduser <USERNAME> vboxusers`
 * Re-login or restart your PC.
+* Make sure you enable Intel VT-x and VT-d in BIOS
 
 ## Mac OS X
 
@@ -24,12 +25,23 @@ By default, VM in VirtualBox will enable `VT-x/AMD-V` and `Nested Paging`, so yo
 * Install Vagrant by `sudo brew cask install vagrant; sudo brew cask install vagrant-manager`
 * Install VirtualBox by `sudo brew cask install virtualbox`
 * Install VirtualBox Extension Pack by `sudo brew cask install virtualbox-extension-pack`
+* Make sure you enable Intel VT-x and VT-d in BIOS
 
-## Windows and other platforms
+## Windows (experimental) 
+* Install the Windows version of git
+   * Install the bash shell
+   * Do not let git change the line ending symbol to windows format
+* Install Vagrant for Windows
+* Install Virtualbox for Windows
+* Run `launch.sh` in PowerShell or git-bash
+* Make sure you enable Intel VT-x and VT-d in BIOS
+* If your VirtualBox VM failed to start, try enabling "Hyper-V" in VirtualBox > Settings > System > Accleration > Paravirtualization Interface.
 
+## Other Platforms
 You need to install [Vagrant](https://docs.vagrantup.com/v2/installation/index.html), see more detail from this [guide](https://docs.vagrantup.com/v2/installation/index.html).
 
 And you also need to install the [provider](https://docs.vagrantup.com/v2/providers/index.html) for Vagrant. We will use [VirtualBox](http://www.virtualbox.org/) as default.
+
 
 # Cloning the Repo
 Use `git clone` with ``--recursive`` so the `vm/` submodule are cloned too.
@@ -140,5 +152,5 @@ sudo adduser <your username> vboxusers
 #Supported Platforms
 * Linux
 * OS X
-* (We will support windows if enought people ask for it)
+* Windows (experimental)
 * Flashable devices: Aries (Sony Z3C), Flame
