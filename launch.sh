@@ -54,7 +54,7 @@ case $1 in
         $VM_SHELL "bash"
         ;;
     *)
-        $VM_SHELL "cd ./MozITP/scripts/; ./menu.sh"
+        $VM_SHELL "cd ./MozITP/scripts/; ./greet.sh; ./greet_taskcluster.sh; ./menu.sh"
         ;;
 esac
 

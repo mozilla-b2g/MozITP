@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# common greeting
-./greet.sh
-./greet_taskcluster.sh
-
+echo ""
 echo "What would you like to do?"
 echo ""
 echo "  1) Run Gaia Integration Test (GIJ) on Mulet"
