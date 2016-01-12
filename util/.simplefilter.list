@@ -1,19 +1,23 @@
 {
-    "whitelist": [
-        "*"
-    ], 
-    "blacklist": [
-        ".git",
-        "vm",
-        ".idea",
-        "env",
-        "env-*",
-        ".gitignore",
-        ".gitmodules",
-        "README.md",
-        ".DS_Store",
-        "test",
-        "tests",
-        "*.png"
-    ]
+    "file": {
+        "whitelist": [
+            "*.sh"
+        ],
+        "blacklist": [
+        ]
+    },
+    "folder": {
+        "whitelist": [
+            "*"
+        ],
+        "blacklist": [
+            ".git",
+            "vm",
+            ".idea",
+            "env",
+            "env-*",
+            "test",
+            "tests"
+        ]
+    }
 }

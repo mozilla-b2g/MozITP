@@ -15,8 +15,10 @@ if __name__ == '__main__':
     """
     # setup default value
     current_dir = os.path.curdir
-    whitelist = ['*']
-    blacklist = ['.git', 'vm', '.idea', 'env', 'env-*']
+    file_whitelist = ['*.sh']
+    file_blacklist = []
+    folder_whitelist = ['*']
+    folder_blacklist = ['.git', 'vm', '.idea', 'env', 'env-*']
 
     # get start path from arg1
     if len(sys.argv) > 1:
@@ -31,34 +33,41 @@ if __name__ == '__main__':
         if os.path.isfile(list_file):
             with open(list_file) as f:
                 loaded_list = json.load(f)
-                whitelist = loaded_list.get('whitelist')
-                blacklist = loaded_list.get('blacklist')
+                # load file pattern
+                file_pattern = loaded_list.get('file')
+                file_whitelist = file_pattern.get('whitelist')
+                file_blacklist = file_pattern.get('blacklist')
+                # load folder pattern
+                folder_pattern = loaded_list.get('folder')
+                folder_whitelist = folder_pattern.get('whitelist')
+                folder_blacklist = folder_pattern.get('blacklist')
         else:
             raise Exception('{} is not a file'.format(list_file))
 
     files = [os.path.join(current_dir, f) for f in os.listdir(current_dir) if os.path.isfile(os.path.join(current_dir, f))]
     dirs = [os.path.join(current_dir, f) for f in os.listdir(current_dir) if os.path.isdir(os.path.join(current_dir, f))]
 
-    # remove the items which are not match the whitelist
-    for pattern in whitelist:
+    # file part, remove the items which are not match the whitelist
+    for pattern in file_whitelist:
         regex = fnmatch.translate(pattern)
         regex_obj = re.compile(regex)
-        for dir_name in dirs:
-            if not regex_obj.match(os.path.basename(dir_name)):
-                dirs.remove(dir_name)
-        for file_name in files:
-            if not regex_obj.match(os.path.basename(file_name)):
-                files.remove(file_name)
+        files = [f for f in files if regex_obj.match(os.path.basename(f))]
     # remove the items which are match the blacklist
-    for pattern in blacklist:
+    for pattern in file_blacklist:
         regex = fnmatch.translate(pattern)
         regex_obj = re.compile(regex)
-        for dir_name in dirs:
-            if regex_obj.match(os.path.basename(dir_name)):
-                dirs.remove(dir_name)
-        for file_name in files:
-            if regex_obj.match(os.path.basename(file_name)):
-                files.remove(file_name)
+        files = [f for f in files if not regex_obj.match(os.path.basename(f))]
+
+    # folder part, remove the items which are not match the whitelist
+    for pattern in folder_whitelist:
+        regex = fnmatch.translate(pattern)
+        regex_obj = re.compile(regex)
+        dirs = [d for d in dirs if regex_obj.match(os.path.basename(d))]
+    # remove the items which are match the blacklist
+    for pattern in folder_blacklist:
+        regex = fnmatch.translate(pattern)
+        regex_obj = re.compile(regex)
+        dirs = [d for d in dirs if not regex_obj.match(os.path.basename(d))]
 
     for item in files:
         print(item)
