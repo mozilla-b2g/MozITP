@@ -10,6 +10,7 @@ vagrant up
 VM_SHELL="vagrant ssh -c"
 
 # speed up scp by filter the first level files and folders
+$VM_SHELL "mkdir -p ~/MozITP"
 ../util/simplefilter.py ../ ../util/.simplefilter.list | while read line; do vagrant scp $line default:~/MozITP; done
 
 $VM_SHELL "cat | bash /dev/stdin $THIS_REPO_URL" < ../scripts/provision.sh
@@ -58,6 +59,10 @@ case $1 in
         ;;
     *)
         $VM_SHELL "cd ./MozITP/scripts/; ./greet/mozitp.sh; ./greet/taskcluster.sh; ./menu.sh"
+        ;;
+    test-speed)
+        # for testing speed up
+        echo "END"
         ;;
 esac
 
