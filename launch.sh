@@ -9,7 +9,9 @@ fi
 vagrant up
 VM_SHELL="vagrant ssh -c"
 
-vagrant scp ../. default:~/MozITP
+# speed up scp by filter the first level files and folders
+../util/simplefilter.py ../ ../util/.simplefilter.list | while read line; do vagrant scp $line default:~/MozITP; done
+
 $VM_SHELL "cat | bash /dev/stdin $THIS_REPO_URL" < ../scripts/provision.sh
 
 # install common modules
