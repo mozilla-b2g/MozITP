@@ -1,0 +1,19 @@
+{
+    "whitelist": [
+        "*"
+    ], 
+    "blacklist": [
+        ".git",
+        "vm",
+        ".idea",
+        "env",
+        "env-*",
+        ".gitignore",
+        ".gitmodules",
+        "README.md",
+        ".DS_Store",
+        "test",
+        "tests",
+        "*.png"
+    ]
+}
