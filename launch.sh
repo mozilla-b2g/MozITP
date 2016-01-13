@@ -1,4 +1,5 @@
 #!/bin/bash
+STARTTIME=$(date +%s)
 
 THIS_REPO_URL=$(git config --get remote.origin.url | sed 's/git@github.com:/https:\/\/github.com\//g' )
 # swtich folder to sub-folder "vm"
@@ -10,6 +11,7 @@ vagrant up
 VM_SHELL="vagrant ssh -c"
 
 # speed up scp by filter the first level files and folders
+$VM_SHELL "mkdir -p ~/MozITP"
 ../util/simplefilter.py ../ ../util/.simplefilter.list | while read line; do vagrant scp $line default:~/MozITP; done
 
 $VM_SHELL "cat | bash /dev/stdin $THIS_REPO_URL" < ../scripts/provision.sh
@@ -56,12 +58,17 @@ case $1 in
         $VM_SHELL "bash ~/MozITP/scripts/flash_b2g.sh"
         $VM_SHELL "bash"
         ;;
+    test-speed)
+        # do nothing, for testing launch time
+        ;;
     *)
         $VM_SHELL "cd ./MozITP/scripts/; ./greet/mozitp.sh; ./greet/taskcluster.sh; ./menu.sh"
         ;;
 esac
 
-
-# start
-# $VM_SHELL "bash ~/MozITP/scripts/startgui.sh"
-# $VM_SHELL "cd ./MozITP/scripts/; ./menu.sh"
+# for testing launch time
+ENDTIME=$(date +%s)
+if [[ "$1" == "test-speed" ]]
+then
+    echo "It takes $((${ENDTIME} - ${STARTTIME})) seconds"
+fi
