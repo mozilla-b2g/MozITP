@@ -5,6 +5,8 @@ NODE_VER="4.2.2"
 sudo apt-get update
 sudo apt-get install -y build-essential libssl-dev \
   libgtk-3-0 \
+  libsound2 \
+  libgtk2.0-0 \
   clang \
   pcregrep 
 # libgtk-3-0: for running Firefox (Mulet)
