@@ -3,7 +3,8 @@ STARTTIME=$(date +%s)
 
 THIS_REPO_URL=$(git config --get remote.origin.url | sed 's/git@github.com:/https:\/\/github.com\//g' )
 # swtich folder to sub-folder "vm"
-cd vm
+pushd vm
+
 if ! vagrant -h | grep scp; then
   vagrant plugin install vagrant-scp
 fi
@@ -66,6 +67,8 @@ case $1 in
         $VM_SHELL "cd ./MozITP/scripts/; ./greet/mozitp.sh; ./greet/taskcluster.sh; ./menu.sh"
         ;;
 esac
+
+popd
 
 # for testing launch time
 ENDTIME=$(date +%s)
