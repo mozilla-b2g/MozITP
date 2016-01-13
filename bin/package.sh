@@ -1,3 +1,4 @@
+# Remember to run vagrant box remove MozITP before you repackage
 OUTPUT=/tmp/mozitp_$(git rev-parse --short HEAD).box
 
 # Need to be run in the root dir
@@ -7,6 +8,6 @@ OUTPUT=/tmp/mozitp_$(git rev-parse --short HEAD).box
 # TODO: b2g-installer + X-window
 cd vm
 #DEBUG
-vagrant ssh -c "sudo bash ~/MozITP/scripts/package/cleanup.sh"
+#vagrant ssh -c "sudo bash ~/MozITP/scripts/package/cleanup.sh"
 vagrant package --output $OUTPUT
 ls -lh $OUTPUT
