@@ -4,26 +4,44 @@ Mozilla Integrated Tool Package
 This package is a one-stop shop for Firefox OS related tools
 
 # Installation 
+MozITP depends on Vagrant and Virtualbox.
 
-You need to install [Vagrant](https://docs.vagrantup.com/v2/installation/index.html), see more detail from this [guide](https://docs.vagrantup.com/v2/installation/index.html).
-
-And you also need to install the [provider](https://docs.vagrantup.com/v2/providers/index.html) for Vagrant. We will use [VirtualBox](http://www.virtualbox.org/) as default.
+By default, VM in VirtualBox will enable `VT-x/AMD-V` and `Nested Paging`, so you should enable `VT-x/AMD-V` feature of your host.
 
 ## Ubuntu
 
 * Download Vagrant's Debian package from [here](http://www.vagrantup.com/downloads).
 * Install Vagrant by `sudo dpkg -i <PATH_TO_PKG_FILE>`
-* Install VirtualBox by `sudo apt-get install virtualbox`
+* Install VirtualBox by `sudo apt-get install virtualbox virtualbox-dkms virtualbox-qt`
+* Reboot your computer after virutalbox installation finished
 * Download and install VirtualBox Extension Pack from [here](https://www.virtualbox.org/wiki/Downloads).
 * Then [set up USB for VirtualBox](https://help.ubuntu.com/community/VirtualBox/USB) by `sudo adduser <USERNAME> vboxusers`
 * Re-login or restart your PC.
+* Make sure you enable Intel VT-x and VT-d in BIOS
 
 ## Mac OS X
 
 * Install [Brew Cask](http://caskroom.io/).
 * Install Vagrant by `sudo brew cask install vagrant; sudo brew cask install vagrant-manager`
 * Install VirtualBox by `sudo brew cask install virtualbox`
-* Install VirtualBox Extension Pack by `brew cask install virtualbox-extension-pack`
+* Install VirtualBox Extension Pack by `sudo brew cask install virtualbox-extension-pack`
+* Make sure you enable Intel VT-x and VT-d in BIOS
+
+## Windows (experimental) 
+* Install the Windows version of git
+   * Install the bash shell
+   * Do not let git change the line ending symbol to windows format
+* Install Vagrant for Windows
+* Install Virtualbox for Windows
+* Run `launch.sh` in PowerShell or git-bash
+* Make sure you enable Intel VT-x and VT-d in BIOS
+* If your VirtualBox VM failed to start, try enabling "Hyper-V" in VirtualBox > Settings > System > Accleration > Paravirtualization Interface.
+
+## Other Platforms
+You need to install [Vagrant](https://docs.vagrantup.com/v2/installation/index.html), see more detail from this [guide](https://docs.vagrantup.com/v2/installation/index.html).
+
+And you also need to install the [provider](https://docs.vagrantup.com/v2/providers/index.html) for Vagrant. We will use [VirtualBox](http://www.virtualbox.org/) as default.
+
 
 # Cloning the Repo
 Use `git clone` with ``--recursive`` so the `vm/` submodule are cloned too.
@@ -72,10 +90,17 @@ $ ./reset_vm.sh
 $ ./launch.sh gij
 ```
 
-* Run GIJ on specific app 
+* Run GIJ on a specific app 
 
 ```bash
 $ export APP=video; ./launch.sh gij # The `export` is important, don't miss it
+```
+
+* Run GIJ on a specific test file
+
+```bash
+export TEST_FILES=apps/clock/test/marionette/hour_format_test.js 
+./launch.sh gij
 ```
 
 * Run GIJ on device directly. The device must be connected through USB before you run the command
@@ -116,7 +141,7 @@ vagrant ssh -c "rm ~/.users_gaia_exists"
 
 
 #Troubleshooting
-* To run `launch.sh` in jenkins, use `xvfb-run`.
+* To run `launch.sh` in jenkins or over SSH, use `xvfb-run ./launch.sh`, otherwise the `vagrant up` command will fail.
 * To use the USB device, add the user to the `vboxusers` group. 
 
 ```
@@ -127,7 +152,7 @@ sudo adduser <your username> vboxusers
 #Supported Platforms
 * Linux
 * OS X
-* (We will support windows if enought people ask for it)
+* Windows (experimental)
 * Flashable devices: Aries (Sony Z3C), Flame
 
 #TODOs

@@ -1,0 +1,23 @@
+{
+    "file": {
+        "whitelist": [
+            "*.sh"
+        ],
+        "blacklist": [
+        ]
+    },
+    "folder": {
+        "whitelist": [
+            "*"
+        ],
+        "blacklist": [
+            ".git",
+            "vm",
+            ".idea",
+            "env",
+            "env-*",
+            "test",
+            "tests"
+        ]
+    }
+}
