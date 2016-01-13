@@ -14,11 +14,12 @@ VM_SHELL="vagrant ssh -c"
 $VM_SHELL "mkdir -p ~/MozITP"
 ../util/simplefilter.py ../ ../util/.simplefilter.list | while read line; do vagrant scp $line default:~/MozITP; done
 
-$VM_SHELL "cat | bash /dev/stdin $THIS_REPO_URL" < ../scripts/provision.sh
+# setup git, github ssh key and apt-get update
+../util/onceaday.py "$VM_SHELL \"cat | bash /dev/stdin $THIS_REPO_URL\" < ../scripts/provision.sh"
 
 # install common modules
-$VM_SHELL "bash ~/MozITP/scripts/install/adb_fastboot.sh"
-$VM_SHELL "bash ~/MozITP/scripts/install/b2g_and_tc_tools.sh"
+../util/onceaday.py "$VM_SHELL \"bash ~/MozITP/scripts/install/adb_fastboot.sh\""
+../util/onceaday.py "$VM_SHELL \"bash ~/MozITP/scripts/install/b2g_and_tc_tools.sh\""
 
 function mulet_test {
     $VM_SHELL "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER
