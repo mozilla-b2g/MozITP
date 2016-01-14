@@ -50,7 +50,7 @@ git clone --recursive <this repo's URL>
 ```
 
 # Usage
-
+## Start/Stop the VM
 * Add execute permissions
 
 ```bash
@@ -82,9 +82,11 @@ $ ./stop.sh
 $ ./reset_vm.sh
 ```
 
+##GIJ 
+
 * Run GIJ (Gaia integration test in JavaScript) directly. This is very useful in automation.
 
-> Warning: sometimes the test case itself has bugs, which makes the GIJ test fail. To verify if it's a GIJ platform bug or a test case bug, run `./bin/gij_sanity_test.sh`. If it passes, it could be a bug in the test case, not the platform.
+> Warning: sometimes the test case itself has bugs, which makes the GIJ test fail. To verify if it's a GIJ platform bug or a test case bug, run `./test/gij_sanity_test.sh`. If it passes, it could be a bug in the test case, not the platform.
 
 ```bash
 $ ./launch.sh gij
@@ -105,7 +107,7 @@ export TEST_FILES=apps/clock/test/marionette/hour_format_test.js
 
 * Run GIJ on device directly. The device must be connected through USB before you run the command
 
-> Warning: sometimes the test case itself has bugs, which makes the GIJ test fail. To verify if it's a GIJ platform bug or a test case bug, run `./bin/gij_device_sanity_test.sh`. If it passes, it could be a bug in the test case, not the platform.
+> Warning: sometimes the test case itself has bugs, which makes the GIJ test fail. To verify if it's a GIJ platform bug or a test case bug, run `./test/gij_device_sanity_test.sh`. If it passes, it could be a bug in the test case, not the platform.
 
 ```bash
 $ ./launch.sh gij device
@@ -138,6 +140,18 @@ vagrant ssh -c "rm ~/.users_gaia_exists"
 ./launch.sh
 ```
 
+## GIP
+```
+./launch.sh gip # Only supports real device:w
+```
+
+## Flashing
+For flashing the TaskCluster image, or use the B2G Installer Add-on, run `./launch.sh` and select from the menu.
+
+Or
+```
+./launch flash
+```
 
 
 #Troubleshooting
