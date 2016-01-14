@@ -25,9 +25,9 @@ taskcluster_login --file ./shared/tc_credentials.json
 deactivate
 
 # copy credentials file into vm
-cd vm
+# cd vm
 vagrant up
-vagrant scp ../shared/tc_credentials.json default:/home/vagrant/tc_credentials.json
+vagrant scp ./shared/tc_credentials.json default:/home/vagrant/tc_credentials.json
 
 # halt VM or not.
 read -p "Let VM keep running? [Y/n]" CHOICE

@@ -11,7 +11,7 @@ if __name__ == '__main__':
     """
     Usage: ./simplefilter.py [start_path] [filter_list_file]
     ex:
-        $ cd vm; ../util/simplefilter.py ../ ../util/.simplefilter.list | while read line; do vagrant scp $line default:~/MozITP; done
+        $ cd vm; ./util/simplefilter.py ./ ./util/.simplefilter.list | while read line; do vagrant scp $line default:~/MozITP; done
     """
     # setup default value
     current_dir = os.path.curdir

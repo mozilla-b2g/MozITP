@@ -4,7 +4,7 @@ STARTTIME=$(date +%s)
 THIS_REPO_URL=$(git config --get remote.origin.url | sed 's/git@github.com:/https:\/\/github.com\//g' )
 
 # swtich folder to sub-folder "vm"
-pushd vm
+# pushd vm
 
 if ! vagrant -h | grep scp; then
     vagrant plugin install vagrant-scp
@@ -14,10 +14,10 @@ VM_SHELL="vagrant ssh -c"
 
 # speed up scp by filter the first level files and folders
 ${VM_SHELL} "mkdir -p ~/MozITP"
-../util/simplefilter.py ../ ../util/.simplefilter.list | while read line; do vagrant scp $line default:~/MozITP; done
+./util/simplefilter.py ./ ./util/.simplefilter.list | while read line; do vagrant scp $line default:~/MozITP; done
 
 # install all packages
-../util/onceaday.py "${VM_SHELL} \"bash ~/MozITP/scripts/install/all.sh ${THIS_REPO_URL}\""
+./util/onceaday.py "${VM_SHELL} \"bash ~/MozITP/scripts/install/all.sh ${THIS_REPO_URL}\""
 
 function mulet_test {
     ${VM_SHELL} "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER
@@ -65,7 +65,7 @@ case $1 in
         ;;
 esac
 
-popd
+# popd
 
 # for testing launch time
 ENDTIME=$(date +%s)

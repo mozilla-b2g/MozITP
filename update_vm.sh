@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd vm
+# cd vm
 vagrant halt
 vagrant box update
