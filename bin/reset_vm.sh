@@ -5,4 +5,4 @@ vagrant destroy
 #popd
 
 # remove the onceaday cache config files
-./reset_onceaday.sh
+./bin/reset_onceaday.sh
