@@ -44,9 +44,8 @@ And you also need to install the [provider](https://docs.vagrantup.com/v2/provid
 
 
 # Cloning the Repo
-Use `git clone` with ``--recursive`` so the `vm/` submodule are cloned too.
 ```
-git clone --recursive <this repo's URL>
+git clone <this repo's URL>
 ```
 
 # Usage
@@ -55,7 +54,6 @@ git clone --recursive <this repo's URL>
 
 ```bash
 $ chmod u+x launch.sh
-$ chmod u+x stop.sh
 ```
 
 * Launch VM
@@ -73,13 +71,13 @@ You should see something like this:
 * Stop the VM
 
 ```bash
-$ ./stop.sh
+$ ./bin/stop.sh
 ```
 
 * Reset the VM to factory default
 
 ```bash
-$ ./reset_vm.sh
+$ ./bin/reset_vm.sh
 ```
 
 ##GIJ 
@@ -132,11 +130,12 @@ Or if you want to keep the VM, you can
 ```
 unset GAIA
 ./launch.sh
+
 # Remove the flag
-cd vm
 vagrant ssh -c "rm ~/.users_gaia_exists"
+
 # Restart the VM
-./stop.sh
+./bin/stop.sh
 ./launch.sh
 ```
 
