@@ -1,6 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Credit: Thanks to Fred Lin's FoxBox project
+#
 # To use this script and prepare your build environment, run the following
 # command in the same directory as the Vagrantfile.
 # B2G_PATH={path to your B2G directory} vagrant up
