@@ -18,6 +18,7 @@
             "logs",
             "vm",
             ".idea",
+            ".vagrant",
             "env",
             "env-*",
             "test",

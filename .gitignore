@@ -2,7 +2,7 @@
 env-*
 docs/
 shared/*
-
+.vagrant
 
 # OS X
 .DS_Store
