@@ -1,3 +1,0 @@
-[submodule "vm"]
-	path = vm
-	url = https://github.com/Mozilla-TWQA/MozITP-vm.git
