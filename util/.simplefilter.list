@@ -18,7 +18,8 @@
             "env",
             "env-*",
             "test",
-            "tests"
+            "tests",
+            "bin"
         ]
     }
 }
