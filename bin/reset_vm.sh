@@ -1,8 +1,10 @@
 #!/bin/bash
 
-#pushd vm
+# reset vm
 vagrant destroy
-#popd
+
+# reset vagrant.d/tmp
+rm -rf ~/.vagrant.d/tmp/*
 
 # remove the onceaday cache config files
 ./bin/reset_onceaday.sh
