@@ -12,6 +12,10 @@
         ],
         "blacklist": [
             ".git",
+            ".vagrant",
+            ".ropeproject",
+            "bin",
+            "logs",
             "vm",
             ".idea",
             ".vagrant",
