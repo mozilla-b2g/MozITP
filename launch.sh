@@ -51,7 +51,20 @@ case $1 in
         esac
         ;;
     gip)
-        ${VM_SHELL} "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip.sh -- -oSendEnv=TEST_FILES"
+        case $2 in
+            simulator)
+                ${VM_SHELL} "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip_mulet.sh -- -oSendEnv=TEST_FILES"
+                ;;
+            emulator)
+                echo "Not supported yet"
+                ;;
+            device)
+                ${VM_SHELL} "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip.sh -- -oSendEnv=TEST_FILES"
+                ;;
+            *)
+                ${VM_SHELL} "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip_mulet.sh -- -oSendEnv=TEST_FILES"
+                ;;
+        esac
         ;;
     flashtool)
         ${VM_SHELL} "bash ~/MozITP/scripts/flash_b2g.sh"
