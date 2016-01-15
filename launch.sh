@@ -70,6 +70,17 @@ case $1 in
         ${VM_SHELL} "bash ~/MozITP/scripts/flash_b2g.sh"
         ${VM_SHELL} "bash"
         ;;
+    fuzz)
+        if [ -z "$2" ]
+        then
+          echo "Usage:"
+          echo "    launch.sh fuzz <testcases.zip>"
+          exit 1
+        fi
+        $VM_SHELL "mkdir ~/fuzz"
+        vagrant scp "$2" default:~/fuzz 
+        $VM_SHELL "bash ~/MozITP/scripts/fuzz_executor.sh"
+        ;;
     test-speed)
         # do nothing, for testing launch time
         ;;
