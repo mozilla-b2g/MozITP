@@ -25,7 +25,9 @@ case $CHOICE in
         ./flash_b2g.sh
         ;;
     4)
+        pushd ~ > /dev/null
         bash
+        popd > /dev/null
         ;;
     9)
         ./x/startgui_b2g_installer.sh
