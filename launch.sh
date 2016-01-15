@@ -3,18 +3,13 @@ STARTTIME=$(date +%s)
 
 THIS_REPO_URL=$(git config --get remote.origin.url | sed 's/git@github.com:/https:\/\/github.com\//g' )
 
-# swtich folder to sub-folder "vm"
-# pushd vm
-
-if ! vagrant -h | grep scp; then
+if ! vagrant plugin list | grep scp > /dev/null; then
     vagrant plugin install vagrant-scp
 fi
+
+# Vagrant up will also rsync the required files from host to guest (one-time, one-way). See Vagrantfile for more detail.
 vagrant up
 VM_SHELL="vagrant ssh -c"
-
-# speed up scp by filter the first level files and folders
-${VM_SHELL} "mkdir -p ~/MozITP"
-./util/simplefilter.py ./ ./util/.simplefilter.list | while read line; do vagrant scp $line default:~/MozITP; done
 
 # install all packages
 ./util/onceaday.py "${VM_SHELL} \"bash ~/MozITP/scripts/install/all.sh ${THIS_REPO_URL}\""
@@ -89,7 +84,6 @@ case $1 in
         ;;
 esac
 
-# popd
 
 # for testing launch time
 ENDTIME=$(date +%s)
