@@ -93,9 +93,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # #if (GAIA_PATH != nil)
   #   config.vm.synced_folder GAIA_PATH, "/home/vagrant/gaia", type: "nfs"
   # #end
-   
-  # config.vm.synced_folder "./shared" , "/home/vagrant/shared", type: "nfs"
-  # The synced folder is disabled for now because it doesn't run in Jenkins
+
+  # The following folder will push into guest when vagrant up.
+  config.vm.synced_folder "./shared", "/home/vagrant/MozITP/shared", type: "rsync", rsync__exclude: ".git/"
+  config.vm.synced_folder "./config_files", "/home/vagrant/MozITP/config_files", type: "rsync", rsync__exclude: ".git/"
+  config.vm.synced_folder "./scripts", "/home/vagrant/MozITP/scripts", type: "rsync", rsync__exclude: ".git/"
+  config.vm.synced_folder "./util", "/home/vagrant/MozITP/util", type: "rsync", rsync__exclude: ".git/"
 
   config.vm.provider "virtualbox" do |v|
     # Enable GUI

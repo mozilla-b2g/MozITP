@@ -8,22 +8,9 @@
     },
     "folder": {
         "whitelist": [
-            "*"
+            "shared"
         ],
         "blacklist": [
-            ".git",
-            ".vagrant",
-            ".ropeproject",
-            "bin",
-            "logs",
-            "vm",
-            ".idea",
-            ".vagrant",
-            "env",
-            "env-*",
-            "test",
-            "tests",
-            "bin"
         ]
     }
 }
