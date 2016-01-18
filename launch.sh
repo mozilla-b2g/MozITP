@@ -8,7 +8,16 @@ if ! vagrant plugin list | grep scp > /dev/null; then
 fi
 
 # Vagrant up will also rsync the required files from host to guest (one-time, one-way). See Vagrantfile for more detail.
-vagrant up
+TMP=`mktemp`
+vagrant up | tee >(grep "is already running" > ${TMP})
+RET=`cat ${TMP}`
+if [[ "${RET}" != "" ]]
+then
+    echo "VM is already running, do rsync..."
+    vagrant rsync
+fi
+rm -rf ${TMP}
+
 VM_SHELL="vagrant ssh -c"
 
 # install all packages
