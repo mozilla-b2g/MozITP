@@ -28,4 +28,4 @@ python setup.py develop
 pip install -Ur gaiatest/tests/requirements.txt
 
 # Run
-adb forward tcp:2828 tcp:2828
+# adb forward tcp:2828 tcp:2828

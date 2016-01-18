@@ -15,6 +15,8 @@ fi
 
 /home/vagrant/MozITP/scripts/gip_provision.sh
 
+adb forward tcp:2828 tcp:2828
+
 echo "{\"acknowledged_risks\":true}" > ~/itp_testvars.json
 
 echo "Running tests for $TEST_FILES"
