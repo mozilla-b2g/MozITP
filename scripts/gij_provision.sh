@@ -2,7 +2,7 @@
 NVM_VER="v0.29.0"
 NODE_VER="4.2.2"
 
-/home/vagrant/util/onceaday.py "sudo apt-get update"
+/home/vagrant/MozITP/util/onceaday.py "sudo apt-get update"
 sudo apt-get install -y build-essential libssl-dev \
   libgtk-3-0 \
   libasound2 \
