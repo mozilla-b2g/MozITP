@@ -168,16 +168,15 @@ sudo adduser <your username> vboxusers
 * Windows (experimental)
 * Flashable devices: Aries (Sony Z3C), Flame
 
-#TODOs
+| Platform       | GIJ          |  GIP  | Fuzz    | 
+|----------------|--------------|-------|---------|
+| Phone Mulet    | OK (headless)| OK    | 2015 Q1 |
+| Phone Device   | OK           | OK    | OK      |
+| Phone Emulator | 2015 Q1      | by request | by request | 
+| TV Mulet       | 2015 Q1      | by request | by request |
+| TV Device      | by request   | by request | by request |
+| TV Emulator    | by request   | by request | by request |
 
-1: High priority to implement next
-5: Low priority to implement next
-| GIJ      | Linux | OS X | Windows |
-|----------|-------|------|---------|
-| Mulet    | Done  | Done | 3       |
-| Emulator | 2     | 2    | 5       |
-| Device   | 1     | 1    | 4       |
+by request: If you need this comination, please open an issue or email us.
 
-* GIP: 3
-* Reproduce TaskCluster Environment: 2
 
