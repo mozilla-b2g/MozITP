@@ -1,7 +1,7 @@
 # This project's things
 env-*
 docs/
-shared/*
+#shared/* # We need to checking the README so the folder exist when pulled
 .vagrant
 
 # OS X
