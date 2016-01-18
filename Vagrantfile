@@ -100,6 +100,28 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "./scripts", "/home/vagrant/MozITP/scripts", type: "rsync", rsync__exclude: ".git/"
   config.vm.synced_folder "./util", "/home/vagrant/MozITP/util", type: "rsync", rsync__exclude: ".git/"
 
+  # define the method for checking the usbfilter by VBoxMange showvminfo
+  def usbfilter_exists(vendorid, productid)
+    path_vagrant_id = ".vagrant/machines/default/virtualbox/id"
+    # vm doesn't exist
+    if not File.exists? path_vagrant_id
+      return false
+    end
+    # get the vm info
+    vm_info = `VBoxManage showvminfo $(<#{path_vagrant_id})`
+    filter_match = "VendorId:         #{vendorid}\nProductId:        #{productid}\n"
+    return vm_info.include? filter_match
+  end
+
+  # define the method for add usbfilter
+  def add_usbfilter(v, name, vendorid, productid)
+    # add the usbfilter with the specified filter name, vendorId and productId.
+    if not usbfilter_exists(vendorid, productid)
+      v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', name, '--vendorid', vendorid, '--productid', productid]
+    end
+  end
+
+  # config vm
   config.vm.provider "virtualbox" do |v|
     # Enable GUI
     v.gui = true
@@ -107,15 +129,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--memory", "4096"]
     # Enable usb
     v.customize ["modifyvm", :id, "--usb", "on"]
-    # Filter the following devices: inari, keon, android
-    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'android', '--vendorid', '0x18d1']
-    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'foxconn', '--vendorid', '0x0489']
-    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'hwawei', '--vendorid', '0x12d1']
-    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'lg', '--vendorid', '0x1004']
-    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'qualcomm', '--vendorid', '0x05c6']
-    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'zte', '--vendorid', '0x19d2']
-    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'spreadtrum', '--vendorid', '0x1782']
-    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'sony', '--vendorid', '0x0fce']
+    # Filter the devices
+    # ref: http://developer.android.com/tools/device.html#VendorIds
+    add_usbfilter(v, 'Google', '18d1', '')
+    add_usbfilter(v, 'Foxconn', '0489', '')
+    add_usbfilter(v, 'Google', '18d1', '')
+    add_usbfilter(v, 'Huawei', '12d1', '')
+    add_usbfilter(v, 'LG', '1004', '')
+    add_usbfilter(v, 'Qualcomm', '05c6', '')
+    add_usbfilter(v, 'Sony', '0fce', '')
+    add_usbfilter(v, 'Spreadtrum', '1782', '')
+    add_usbfilter(v, 'ZTE', '19d2', '')
   end
 
 end
