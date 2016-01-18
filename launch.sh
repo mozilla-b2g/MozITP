@@ -72,7 +72,6 @@ case $1 in
         ;;
     flashtool)
         ${VM_SHELL} "bash ~/MozITP/scripts/flash_b2g.sh"
-        ${VM_SHELL} "bash"
         ;;
     fuzz)
         if [ -z "$2" ]
