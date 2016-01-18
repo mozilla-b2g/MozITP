@@ -3,6 +3,10 @@
 
 source /home/vagrant/MozITP/scripts/gip_provision.sh
 
+pushd ~/gaia
+make #create profile
+popd
+
 # Run
 adb forward --remove-all
 echo "{\"acknowledged_risks\":true}" > ~/itp_testvars.json
