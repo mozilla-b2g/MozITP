@@ -13,7 +13,7 @@ then
   exit 1
 fi
 
-/home/vagrant/MozITP/scripts/gip_provision.sh
+source /home/vagrant/MozITP/scripts/gip_provision.sh
 
 adb forward tcp:2828 tcp:2828
 
