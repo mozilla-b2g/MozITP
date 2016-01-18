@@ -9,6 +9,7 @@ fi
 
 # Vagrant up will also rsync the required files from host to guest (one-time, one-way). See Vagrantfile for more detail.
 vagrant up
+vagrant rsync
 VM_SHELL="vagrant ssh -c"
 
 # install all packages
