@@ -1,4 +1,4 @@
-/home/vagrant/MozITP/util/onceaday.py sudo apt-get update
+/home/vagrant/MozITP/util/onceaday.py "sudo apt-get update"
 sudo apt-get install -y python python-pip xvfb
 
 cd ~/
