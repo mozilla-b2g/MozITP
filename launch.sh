@@ -8,7 +8,7 @@ if ! vagrant plugin list | grep scp > /dev/null; then
 fi
 
 # Vagrant up will also rsync the required files from host to guest (one-time, one-way). See Vagrantfile for more detail.
-TMP=`mktemp`
+TMP=`mktemp 2> /dev/null || mktemp -t tmp`
 vagrant up | tee >(grep "is already running" > ${TMP})
 RET=`cat ${TMP}`
 if [[ "${RET}" != "" ]]
