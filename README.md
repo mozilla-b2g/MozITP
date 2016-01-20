@@ -81,6 +81,7 @@ $ ./bin/reset_vm.sh
 ```
 
 ##GIJ 
+See Supported Platforms section for available targets.
 
 * Run GIJ (Gaia integration test in JavaScript) directly. This is very useful in automation.
 
@@ -140,8 +141,10 @@ vagrant ssh -c "rm ~/.users_gaia_exists"
 ```
 
 ## GIP
+See Supported Platforms section for available targets.
+
 ```
-./launch.sh gip # Only supports real device:w
+./launch.sh gip 
 ```
 
 ## Flashing
@@ -172,7 +175,7 @@ sudo adduser <your username> vboxusers
 |----------------|--------------|-------|---------|
 | Phone Mulet    | OK (headless)| OK    | 2015 Q1 |
 | Phone Device   | OK           | OK    | OK      |
-| Phone Emulator | 2015 Q1      | by request | by request | 
+| Phone Emulator | Too slow     | by request | by request | 
 | TV Mulet       | 2015 Q1      | by request | by request |
 | TV Device      | by request   | by request | by request |
 | TV Emulator    | by request   | by request | by request |

@@ -44,7 +44,7 @@ case $1 in
                 mulet_test
                 ;;
             emulator)
-                echo "Not supported yet"
+                echo "The emulator is too slow for GIJ, if you still wish to run, checkout scripts/gij_phone_emulator.sh"
                 ;;
             device)
                 device_test
@@ -60,7 +60,7 @@ case $1 in
                 ${VM_SHELL} "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip_mulet.sh -- -oSendEnv=TEST_FILES"
                 ;;
             emulator)
-                echo "Not supported yet"
+                echo "The emulator is too slow for GIP, if you still wish to run, checkout scripts/gij_phone_emulator.sh"
                 ;;
             device)
                 ${VM_SHELL} "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip.sh -- -oSendEnv=TEST_FILES"
