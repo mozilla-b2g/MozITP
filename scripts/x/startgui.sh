@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 
+MOZITP=$(dirname $(dirname $(dirname $(readlink -f $0))))
+
 echo "### Setting up the desktop file: $1"
 
-sudo /usr/share/debconf/fix_db.pl
-yes 1 | sudo dpkg-reconfigure dictionaries-common
-
-sudo apt-get update
-sudo apt-get install -y lxde-core lightdm-gtk-greeter xinit xserver-xorg
-update-rc.d -f lightdm remove
+bash ${MOZITP}/scripts/install/xwindow.sh
 
 echo "### Updating /etc/xdg/autostart/MozITP.desktop file..."
 sudo rm -rf /etc/xdg/autostart/MozITP.desktop

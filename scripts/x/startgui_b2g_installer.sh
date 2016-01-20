@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-MOZITP="/home/vagrant/MozITP"
+MOZITP=$(dirname $(dirname $(dirname $(readlink -f $0))))
 
 bash ${MOZITP}/scripts/x/startgui.sh ${MOZITP}/scripts/x/b2g-installer.desktop
