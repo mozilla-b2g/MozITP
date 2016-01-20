@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MOZITP="/home/vagrant/MozITP"
+MOZITP=$(dirname $(dirname $(dirname $(readlink -f $0))))
 
 # install adb and fastboot
 sudo apt-get -y install android-tools-adb android-tools-fastboot
