@@ -39,6 +39,6 @@ popd
 export BUILDAPP=device
 export GIJ_NO_SETUP=1
 # DEVICE_DEBUG=1 make reset-gaia
-$SCRIPT_PATH/gij.sh
+$SCRIPT_PATH/gij_phone_mulet.sh
 
 adb reboot

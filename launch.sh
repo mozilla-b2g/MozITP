@@ -24,11 +24,11 @@ VM_SHELL="vagrant ssh -c"
 ./util/onceaday.py "${VM_SHELL} \"bash ~/MozITP/scripts/install/all.sh ${THIS_REPO_URL}\""
 
 function mulet_test {
-    ${VM_SHELL} "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER
+    ${VM_SHELL} "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij_phone_mulet.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER
 }
 
 function device_test {
-    ${VM_SHELL} "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij_device.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER
+    ${VM_SHELL} "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij_phone_device.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER
 }
 
 if [ "$GAIA" ]
@@ -57,16 +57,16 @@ case $1 in
     gip)
         case $2 in
             simulator)
-                ${VM_SHELL} "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip_mulet.sh -- -oSendEnv=TEST_FILES"
+                ${VM_SHELL} "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip_phone_mulet.sh -- -oSendEnv=TEST_FILES"
                 ;;
             emulator)
                 echo "The emulator is too slow for GIP, if you still wish to run, checkout scripts/gij_phone_emulator.sh"
                 ;;
             device)
-                ${VM_SHELL} "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip.sh -- -oSendEnv=TEST_FILES"
+                ${VM_SHELL} "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip_phone_device.sh -- -oSendEnv=TEST_FILES"
                 ;;
             *)
-                ${VM_SHELL} "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip_mulet.sh -- -oSendEnv=TEST_FILES"
+                ${VM_SHELL} "export TEST_FILES=$TEST_FILES; bash ~/MozITP/scripts/gip_phone_mulet.sh -- -oSendEnv=TEST_FILES"
                 ;;
         esac
         ;;

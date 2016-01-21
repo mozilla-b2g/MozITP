@@ -1,6 +1,6 @@
 #!/bin/bash
 #if [ $EUID -eq 0 ]; then #Don't run as root
-  #su vagrant -c "/home/vagrant/MozITP/scripts/gij.sh" #fi
+  #su vagrant -c "/home/vagrant/MozITP/scripts/gij_phone_mulet.sh" #fi
 
 # If you don't want to run GIJ setup again, set the env var to GIJ_NO_SETUP=true
 NODE_VER="4.2"

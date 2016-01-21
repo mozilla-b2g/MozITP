@@ -17,7 +17,11 @@ function run_test {
 }
 
 run_test flashtool_sanity_test.sh
+
 run_test gij_phone_mulet_sanity_test.sh
 run_test gip_phone_mulet_sanity_test.sh
+
+run_test gij_phone_device_sanity_test.sh
+run_test gip_phone_device_sanity_test.sh
 
 popd

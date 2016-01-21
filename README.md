@@ -85,7 +85,7 @@ See Supported Platforms section for available targets.
 
 * Run GIJ (Gaia integration test in JavaScript) directly. This is very useful in automation.
 
-> Warning: sometimes the test case itself has bugs, which makes the GIJ test fail. To verify if it's a GIJ platform bug or a test case bug, run `./test/gij_sanity_test.sh`. If it passes, it could be a bug in the test case, not the platform.
+> Warning: sometimes the test case itself has bugs, which makes the GIJ test fail. To verify if it's a GIJ platform bug or a test case bug, run `./test/gij_phone_mulet_sanity_test.sh`. If it passes, it could be a bug in the test case, not the platform.
 
 ```bash
 $ ./launch.sh gij
@@ -106,7 +106,7 @@ export TEST_FILES=apps/clock/test/marionette/hour_format_test.js
 
 * Run GIJ on device directly. The device must be connected through USB before you run the command
 
-> Warning: sometimes the test case itself has bugs, which makes the GIJ test fail. To verify if it's a GIJ platform bug or a test case bug, run `./test/gij_device_sanity_test.sh`. If it passes, it could be a bug in the test case, not the platform.
+> Warning: sometimes the test case itself has bugs, which makes the GIJ test fail. To verify if it's a GIJ platform bug or a test case bug, run `./test/gij_phone_device_sanity_test.sh`. If it passes, it could be a bug in the test case, not the platform.
 
 ```bash
 $ ./launch.sh gij device

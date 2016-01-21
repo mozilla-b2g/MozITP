@@ -16,10 +16,10 @@ read CHOICE
 
 case $CHOICE in 
     1)
-        ./gij.sh
+        ./gij_phone_mulet.sh
         ;;
     2)
-        ./gij_device.sh
+        ./gij_phone_device.sh
         ;;
     3)
         ./flash_b2g.sh
