@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Remember to run vagrant box remove MozITP before you repackage
 OUTPUT=/tmp/mozitp_$(git rev-parse --short HEAD).box
 
