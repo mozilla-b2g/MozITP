@@ -24,7 +24,7 @@ VM_SHELL="vagrant ssh -c"
 ./util/onceaday.py "${VM_SHELL} \"bash ~/MozITP/scripts/install/all.sh ${THIS_REPO_URL}\""
 
 function mulet_test {
-    ${VM_SHELL} "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij_phone_mulet.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER
+    ${VM_SHELL} "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; export TEST_MANIFEST=$TEST_MANIFEST; bash ~/MozITP/scripts/gij_phone_mulet.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER -oSendEnv=REPORTER
 }
 
 function device_test {
@@ -82,7 +82,7 @@ case $1 in
         fi
         $VM_SHELL "mkdir ~/fuzz"
         vagrant scp "$2" default:~/fuzz 
-        $VM_SHELL "bash ~/MozITP/scripts/fuzz_executor.sh"
+        $VM_SHELL "bash ~/MozITP/scripts/fuzz_executor.sh $2"
         ;;
     test-speed)
         # do nothing, for testing launch time
