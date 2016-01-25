@@ -7,6 +7,8 @@ echo "  1) Run Gaia Integration Test (GIJ) on Mulet"
 echo "  2) Run Gaia Integration Test (GIJ) on Real Device"
 echo "  3) Flashing B2G Image (only Aries and Flame)"
 echo "  4) Enter interactive shell (bash)"
+echo "  5) Enter GUI (X window)"
+echo "  --- Experimental ---"
 echo "  9) Enter Firefox b2g-installer Add-on (GUI)"
 echo "  0) Exit"
 echo ""
@@ -28,6 +30,9 @@ case $CHOICE in
         pushd ~ > /dev/null
         bash
         popd > /dev/null
+        ;;
+    5)
+        ./x/startgui.sh
         ;;
     9)
         ./x/startgui_b2g_installer.sh
