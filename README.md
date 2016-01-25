@@ -10,7 +10,7 @@ By default, VM in VirtualBox will enable `VT-x/AMD-V` and `Nested Paging`, so yo
 
 ## Ubuntu
 
-* Download Vagrant's Debian package from [here](http://www.vagrantup.com/downloads).
+* Download Vagrant's Debian package from [here](https://www.vagrantup.com/downloads.html).
 * Install Vagrant by `sudo dpkg -i <PATH_TO_PKG_FILE>`
 * Install VirtualBox by `sudo apt-get install virtualbox virtualbox-dkms virtualbox-qt`
 * Reboot your computer after virutalbox installation finished
