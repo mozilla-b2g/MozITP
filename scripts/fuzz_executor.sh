@@ -14,6 +14,7 @@ unzip -o $ZIP_FILENAME
 cd $UNZIPPED_DIR
 
 source $SCRIPT_PATH/gip_provision.sh
+adb forward tcp:2828 tcp:2828
 
 # TODO: read the launch script path from the config
 cd ~/fuzz/$UNZIPPED_DIR
