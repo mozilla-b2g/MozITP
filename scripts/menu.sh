@@ -32,7 +32,7 @@ case $CHOICE in
         popd > /dev/null
         ;;
     5)
-        ./x/startgui.sh
+        ./x/startgui_only.sh
         ;;
     9)
         ./x/startgui_b2g_installer.sh
