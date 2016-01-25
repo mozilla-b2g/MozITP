@@ -8,14 +8,32 @@ MOZITP=$(dirname $(dirname $0))
 # Need to be run in the root dir
 pushd ${MOZITP}
 
-# reset vm
+# Reset vm
 ./bin/reset_vm.sh
 
-# run once for installing packages
+# Modify the Vagrantfile for packaging
+echo "Preparing the packaing Vagrantfile..."
+cat Vagrantfile | sed s/"#config.ssh.insert_key = false"/"config.ssh.insert_key = false"/g > Vagrantfile_4_package
+mv Vagrantfile Vagrantfile_backup
+mv Vagrantfile_4_package Vagrantfile
+
+# Run once for installing packages
 echo "### Installing packages..."
 ./launch.sh test-speed
+echo "### git clone Gaia..."
+vagrant ssh -c "cd ~; git clone --depth=1 https://github.com/mozilla-b2g/gaia.git"
 
-# do tests
+# Package the box
+echo "### Doing vagrant package..."
+rm -rf ${OUTPUT}
+vagrant package --output ${OUTPUT}
+ls -lh ${OUTPUT}
+
+# Restore the Vagrantfile
+echo "Restoring the Vagrantfile from backup..."
+mv Vagrantfile_backup Vagrantfile
+
+# Do tests for Jenkins jobs
 echo "### Doing sanity tests..."
 ./test/all_without_device.sh
 RET=`echo $?`
@@ -23,10 +41,5 @@ if [[ "${RET}" != "0" ]]
 then
     exit ${RET}
 fi
-
-# package the box
-echo "### Doing vagrant package..."
-vagrant package --output ${OUTPUT}
-ls -lh ${OUTPUT}
 
 popd

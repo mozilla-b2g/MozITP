@@ -61,6 +61,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #config.vm.box_url = "file:///tmp/mozitp_da52fd4.box" # must use 64 because mozilla-download needs to download
   # linux64-mulet. There is no linux-mulet for 32 bit machine
 
+  #config.ssh.insert_key = false
+
   # Run the bootsrap script on start.
   # config.vm.provision "shell", inline: $bootstrap
   # config.vm.provision "shell", path: "scripts/setup_ubuntu_14_04.sh"
