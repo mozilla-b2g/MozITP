@@ -1,2 +1,0 @@
-# cd vm; 
-vagrant destroy;
