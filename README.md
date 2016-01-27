@@ -1,12 +1,12 @@
 Mozilla Integrated Tool Package
 ===============================
 
-This package is a one-stop shop for Firefox OS related tools
+This package (MozITP) is a one-stop shop for Firefox OS related tools.
 
 # Installation 
-MozITP depends on Vagrant and Virtualbox.
+MozITP depends on **Vagrant** and **Virtualbox**.
 
-By default, VM in VirtualBox will enable `VT-x/AMD-V` and `Nested Paging`, so you should enable `VT-x/AMD-V` feature of your host.
+By default, VM in VirtualBox will enable **VT-x/AMD-V** and **Nested Paging**, so you have to enable **VT-x/AMD-V** feature of your host.
 
 ## Ubuntu
 
@@ -92,7 +92,7 @@ $ ./bin/update_vm.sh
 
 
 ## GIJ
-See Supported Platforms section for available targets.
+See **Supported Platforms** section for available targets.
 
 * Run GIJ (Gaia integration test in JavaScript) directly. This is very useful in automation.
 
@@ -152,7 +152,7 @@ vagrant ssh -c "rm ~/.users_gaia_exists"
 ```
 
 ## GIP
-See Supported Platforms section for available targets.
+See **Supported Platforms** section for available targets.
 
 ```
 ./launch.sh gip 
@@ -172,11 +172,16 @@ You can use the B2G Installer Add-on, run `./launch.sh` and select `Enter Firefo
 
 ## Shared Folder
 
-You can put files/folders into `shared` folder.
+You can put files/folders into **shared** folder.
 
-The `shared` folder will be pushed from host into VM when you run `./launch.sh`.
+The **shared** folder will be pushed from host into VM when you run `./launch.sh`.
 
-And the `shared` folder will be pulled from VM to host when you run `./bin/stop.sh`.
+And the **shared** folder will be pulled from VM to host when you run `./bin/stop.sh`.
+
+| Command         | From | To   |
+|-----------------|------|------|
+| `./launch.sh`   | host | VM   |
+| `./bin/stop.sh` | VM   | host |
 
 
 # Troubleshooting
