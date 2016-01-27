@@ -162,6 +162,7 @@ See Supported Platforms section for available targets.
 * Have TaskCluster credentials
 
 For flashing the TaskCluster image (need credentials), please run `./bin/get_credentials.sh` before flashing.
+
 Then run `launch.sh` and select `Flashing B2G Image`, or just run `./launch.sh flash`.
 
 * Do not have TaskCluster credentials
