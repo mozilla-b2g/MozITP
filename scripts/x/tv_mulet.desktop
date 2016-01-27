@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=MozITP
+Exec=uxterm -e "/home/vagrant/MozITP/scripts/x/tv_mulet.sh"

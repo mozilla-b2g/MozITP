@@ -9,6 +9,7 @@ echo "  3) Flashing B2G Image (only Aries and Flame)"
 echo "  4) Enter interactive shell (bash)"
 echo "  5) Enter GUI (X window)"
 echo "  --- Experimental ---"
+echo "  8) Enter GUI with TV mulet"
 echo "  9) Enter Firefox b2g-installer Add-on (GUI)"
 echo "  0) Exit"
 echo ""
@@ -33,6 +34,9 @@ case $CHOICE in
         ;;
     5)
         ./x/startgui_only.sh
+        ;;
+    8)
+        ./x/startgui_tv_mulet.sh
         ;;
     9)
         ./x/startgui_b2g_installer.sh
