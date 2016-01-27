@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source /home/vagrant/MozITP/scripts/gip_provision.sh
+source /home/vagrant/MozITP/scripts/gij_provision.sh
 
 pushd ~/gaia
 
