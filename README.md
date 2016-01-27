@@ -17,7 +17,7 @@ By default, VM in VirtualBox will enable `VT-x/AMD-V` and `Nested Paging`, so yo
 * Download and install VirtualBox Extension Pack from [here](https://www.virtualbox.org/wiki/Downloads).
 * Then [set up USB for VirtualBox](https://help.ubuntu.com/community/VirtualBox/USB) by `sudo adduser <USERNAME> vboxusers`
 * Re-login or restart your PC.
-* Make sure you enable Intel VT-x and VT-d in BIOS
+* Make sure you enable Intel VT-x and VT-d in BIOS.
 
 ## Mac OS X
 
@@ -25,7 +25,7 @@ By default, VM in VirtualBox will enable `VT-x/AMD-V` and `Nested Paging`, so yo
 * Install Vagrant by `sudo brew cask install vagrant; sudo brew cask install vagrant-manager`
 * Install VirtualBox by `sudo brew cask install virtualbox`
 * Install VirtualBox Extension Pack by `sudo brew cask install virtualbox-extension-pack`
-* Make sure you enable Intel VT-x and VT-d in BIOS
+* Make sure you enable Intel VT-x and VT-d in BIOS.
 
 ## Windows (experimental) 
 * Install the Windows version of git
@@ -34,7 +34,7 @@ By default, VM in VirtualBox will enable `VT-x/AMD-V` and `Nested Paging`, so yo
 * Install Vagrant for Windows
 * Install Virtualbox for Windows
 * Run `launch.sh` in PowerShell or git-bash
-* Make sure you enable Intel VT-x and VT-d in BIOS
+* Make sure you enable Intel VT-x and VT-d in BIOS.
 * If your VirtualBox VM failed to start, try enabling "Hyper-V" in VirtualBox > Settings > System > Accleration > Paravirtualization Interface.
 
 ## Other Platforms
@@ -44,9 +44,13 @@ And you also need to install the [provider](https://docs.vagrantup.com/v2/provid
 
 
 # Cloning the Repo
+Run following command for cloning this repo.
 ```
 git clone <this repo's URL>
 ```
+
+And you can run `git pull` to get the latest version of this repo.
+
 
 # Usage
 ## Start/Stop the VM
@@ -80,7 +84,14 @@ $ ./bin/stop.sh
 $ ./bin/reset_vm.sh
 ```
 
-##GIJ 
+* Update the VM
+
+```bash
+$ ./bin/update_vm.sh
+```
+
+
+## GIJ
 See Supported Platforms section for available targets.
 
 * Run GIJ (Gaia integration test in JavaScript) directly. This is very useful in automation.
@@ -148,15 +159,26 @@ See Supported Platforms section for available targets.
 ```
 
 ## Flashing
-For flashing the TaskCluster image, or use the B2G Installer Add-on, run `./launch.sh` and select from the menu.
+* Have TaskCluster credentials
 
-Or
-```
-./launch flash
-```
+For flashing the TaskCluster image (need credentials), please run `./bin/get_credentials.sh` before flashing.
+Then run `launch.sh` and select `Flashing B2G Image`, or just run `./launch.sh flash`.
+
+* Do not have TaskCluster credentials
+
+You can use the B2G Installer Add-on, run `./launch.sh` and select `Enter Firefox b2g-installer Add-on` from the menu.
 
 
-#Troubleshooting
+## Shared Folder
+
+You can put files/folders into `shared` folder.
+
+The `shared` folder will be pushed from host into VM when you run `./launch.sh`.
+
+And the `shared` folder will be pulled from VM to host when you run `./bin/stop.sh`.
+
+
+# Troubleshooting
 * To run `launch.sh` in jenkins or over SSH, use `xvfb-run ./launch.sh`, otherwise the `vagrant up` command will fail.
 * To use the USB device, add the user to the `vboxusers` group. 
 
@@ -165,7 +187,7 @@ sudo adduser <your username> vboxusers
 ```
 * If you want to run USB device test in Jenkins, also add the `jenkins` user to the `vboxusers` group
 
-#Supported Platforms
+# Supported Platforms
 * Linux
 * OS X
 * Windows (experimental)
