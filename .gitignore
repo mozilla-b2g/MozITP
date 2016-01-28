@@ -2,7 +2,7 @@
 env-*
 docs/
 shared/*
-!shared/README.md # We need to checking the README so the folder exist when pulled
+!shared/.placeholder # We need to checking the placeholder so the folder exist when pulled
 .vagrant
 
 # OS X
