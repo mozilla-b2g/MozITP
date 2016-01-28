@@ -1,7 +1,9 @@
-/home/vagrant/MozITP/util/onceaday.py "sudo apt-get update"
-sudo apt-get install -y python python-pip xvfb
+# Install NVM
+source /home/vagrant/MozITP/scripts/install/nvm.sh
 
-cd ~/
+/home/vagrant/MozITP/util/onceaday.py "sudo apt-get update"
+
+pushd ~/
 if [ -f ".users_gaia_exists" ]
 then
   echo "You chose to use your own gaia."
@@ -16,16 +18,18 @@ else
     git clone https://github.com/mozilla-b2g/gaia.git ~/gaia --depth=1 # shallow clone
   fi
 fi
+popd
 
-cd ~/gaia
+
+pushd ~/gaia
 
 sudo pip install virtualenv
 virtualenv venv_gip
 source ./venv_gip/bin/activate
 
-cd tests/python/gaia-ui-tests
+pushd tests/python/gaia-ui-tests
 python setup.py develop
 pip install -Ur gaiatest/tests/requirements.txt
+popd
 
-# Run
-# adb forward tcp:2828 tcp:2828
+popd
