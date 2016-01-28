@@ -5,6 +5,9 @@ sudo service udev restart
 sudo adb kill-server
 sudo adb start-server
 
+ntpdate -s ntp.ubuntu.com
+sudo dpkg-reconfigure --frontend noninteractive tzdata
+
 echo ""
 echo "███╗   ███╗ ██████╗ ███████╗██╗████████╗██████╗ "
 echo "████╗ ████║██╔═══██╗╚══███╔╝██║╚══██╔══╝██╔══██╗"

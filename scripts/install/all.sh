@@ -9,5 +9,6 @@ bash ${MOZITP}/scripts/install/system_provision.sh ${THIS_REPO_URL}
 # install common modules
 bash ${MOZITP}/scripts/install/adb_fastboot.sh
 bash ${MOZITP}/scripts/install/b2g_and_tc_tools.sh
+bash ${MOZITP}/scripts/install/nvm.sh
 bash ${MOZITP}/scripts/install/xwindow.sh
 bash ${MOZITP}/scripts/install/firefox_trunk.sh

@@ -9,6 +9,7 @@ echo "  3) Flashing B2G Image (only Aries and Flame)"
 echo "  4) Enter interactive shell (bash)"
 echo "  5) Enter GUI mode (X window)"
 echo "  --- Experimental ---"
+echo "  7) Run Gaia UI Test (GIP) on Mulet"
 echo "  8) Run TV mulet (X window)"
 echo "  9) Run Firefox b2g-installer Add-on (X window)"
 echo "  0) Exit"
@@ -34,6 +35,9 @@ case $CHOICE in
         ;;
     5)
         ./x/startgui_only.sh
+        ;;
+    7)
+        ./gip_phone_mulet.sh
         ;;
     8)
         ./x/startgui_tv_mulet.sh
