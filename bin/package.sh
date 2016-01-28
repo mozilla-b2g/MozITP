@@ -21,8 +21,10 @@ mv Vagrantfile_4_package Vagrantfile
 echo "### Installing packages..."
 ./launch.sh test-speed
 vagrant ssh -c "sudo apt-get -y install virtualbox-guest-dkms"
-echo "### git clone Gaia..."
-vagrant ssh -c "cd ~; git clone https://github.com/mozilla-b2g/gaia.git"
+
+# If the base image box already has the Gaia, so we just need to git pull it.
+echo "### Updating Gaia..."
+vagrant ssh -c "if [[ -d ~/gaia ]]; then echo \"Gaia Found, git pull\" && cd ~/gaia && git pull; else echo \"Gaia Not Found, git clone\" && git clone https://github.com/mozilla-b2g/gaia.git; fi;"
 
 # Package the box
 echo "### Doing vagrant package..."
