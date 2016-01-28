@@ -176,12 +176,13 @@ You can put files/folders into **shared** folder.
 
 The **shared** folder will be pushed from host into VM when you run `./launch.sh`.
 
-And the **shared** folder will be pulled from VM to host when you run `./bin/stop.sh`.
+The **shared** folder will be pulled from VM to host when you exit the `launch.sh` script, or when run `./bin/stop.sh`.
 
-| Command         | From | To   |
-|-----------------|------|------|
-| `./launch.sh`   | host | VM   |
-| `./bin/stop.sh` | VM   | host |
+| Command             | From | To   |
+|---------------------|------|------|
+| run `./launch.sh`   | host | VM   |
+| exit `./launch.sh`  | VM   | host |
+| run `./bin/stop.sh` | VM   | host |
 
 
 # Troubleshooting

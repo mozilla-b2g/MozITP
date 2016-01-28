@@ -22,7 +22,7 @@ echo "### Installing packages..."
 ./launch.sh test-speed
 vagrant ssh -c "sudo apt-get -y install virtualbox-guest-dkms"
 echo "### git clone Gaia..."
-vagrant ssh -c "cd ~; git clone --depth=1 https://github.com/mozilla-b2g/gaia.git"
+vagrant ssh -c "cd ~; git clone https://github.com/mozilla-b2g/gaia.git"
 
 # Package the box
 echo "### Doing vagrant package..."
