@@ -34,9 +34,11 @@ echo "Running tests for $TEST_FILES"
 
 source ./venv_gip/bin/activate
 mkdir -p /home/vagrant/MozITP/shared/GIP/
+pushd ~/gaia/tests/python/gaia-ui-tests/
 GAIATEST_SKIP_WARNING=1 gaiatest --binary=/home/vagrant/gaia/firefox/firefox-bin --profile=/home/vagrant/gaia/profile/ --app-arg=-chrome --app-arg=chrome://b2g/content/shell.html --testvars ~/itp_testvars.json --log-html /home/vagrant/MozITP/shared/GIP/${TIMESTAMP}.html ${TEST_FILES}
-echo "Output html report to shared/GIP/${TIMESTAMP}.html"
 RET=`echo $?`
+echo "Output html report to shared/GIP/${TIMESTAMP}.html"
+popd
 
 popd
 
