@@ -1,7 +1,8 @@
 # This project's things
 env-*
 docs/
-#shared/* # We need to checking the README so the folder exist when pulled
+shared/*
+!shared/.placeholder # We need to checking the placeholder so the folder exist when pulled
 .vagrant
 
 # OS X

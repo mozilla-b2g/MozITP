@@ -1,24 +1,46 @@
-# Check if device is connected
-# Clone gaia
+#!/bin/bash
 
 source /home/vagrant/MozITP/scripts/gip_provision.sh
 
+TIMESTAMP=`date +%Y-%m-%d-%H-%M-%S`
+
 pushd ~/gaia
-make #create profile
-popd
+
+# check node version
+echo "### Node version is:"
+node -v
+
+# create profile
+echo "### Running Gaia make clean..."
+make clean
+rm -rf ./node_modules
+echo "### Downloading Mulet..."
+make mulet
+echo "### Creating Gaia profile..."
+make
 
 # Run
 adb forward --remove-all
-echo "{\"acknowledged_risks\":true}" > ~/itp_testvars.json
+echo "{\"acknowledged_risks\":true, \"skip_warning\": true}" > ~/itp_testvars.json
 
 Xvfb :10 -ac 2> /dev/null & # Open xvfb on display 10, surpressing the error log
 export DISPLAY=:10
 
+if [[ -z "${TEST_FILES}" ]]
+then
+    TEST_FILES="/home/vagrant/gaia/tests/python/gaia-ui-tests/gaiatest/tests/functional/manifest.ini"
+fi
 echo "Running tests for $TEST_FILES"
-#GAIATEST_SKIP_WARNING=1 gaiatest --address localhost:2828 --testvars ~/itp_testvars.json $TEST_FILES
-GAIATEST_SKIP_WARNING=1 gaiatest --binary=/home/vagrant/gaia/firefox/firefox-bin --profile=/home/vagrant/gaia/profile/ --app-arg=-chrome --app-arg=chrome://b2g/content/shell.html  --testvars ~/itp_testvars.json $TEST_FILES
-#GAIATEST_SKIP_WARNING=1 gaiatest --binary=/home/vagrant/gaia/firefox/firefox-bin  --testvars ~/itp_testvars.json $TEST_FILES
+
+source ./venv_gip/bin/activate
+mkdir -p /home/vagrant/MozITP/shared/GIP/
+pushd ~/gaia/tests/python/gaia-ui-tests/
+GAIATEST_SKIP_WARNING=1 gaiatest --binary=/home/vagrant/gaia/firefox/firefox-bin --profile=/home/vagrant/gaia/profile/ --app-arg=-chrome --app-arg=chrome://b2g/content/shell.html --testvars ~/itp_testvars.json --log-html /home/vagrant/MozITP/shared/GIP/${TIMESTAMP}.html ${TEST_FILES}
 RET=`echo $?`
+echo "Output html report to shared/GIP/${TIMESTAMP}.html"
+popd
+
+popd
 
 killall Xvfb
 
