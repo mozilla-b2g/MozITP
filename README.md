@@ -182,4 +182,7 @@ sudo adduser <your username> vboxusers
 
 by request: If you need this comination, please open an issue or email us.
 
+#Related
 
+* [MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS/Automated_testing/MozITP)
+* [Wiki](https://wiki.mozilla.org/B2G/MozITP)
