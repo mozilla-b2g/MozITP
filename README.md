@@ -1,182 +1,211 @@
 Mozilla Integrated Tool Package
 ===============================
 
-This package (MozITP) is a one-stop shop for Firefox OS related tools.
+The Mozilla integrated tools package (MozITP) is a one-stop shop for setting up Firefox OS-related tools, which can handle automatic Testing on Mulet or a real device, [flashing TaskCluster images](https://pypi.python.org/pypi/b2g_util), flashing with the [B2G installer add-on](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS/Building_and_installing_Firefox_OS/B2G_installer_add-on), and running the TV and phone versions of Mulet.
 
-# Installation 
+# Environment setup
+
 MozITP depends on **Vagrant** and **Virtualbox**.
 
 By default, VM in VirtualBox will enable **VT-x/AMD-V** and **Nested Paging**, so you have to enable **VT-x/AMD-V** feature of your host.
 
+Let's look at how to set up the environment on Linux, Mac OS X, and Windows.
+
 ## Ubuntu
 
-* Download Vagrant's Debian package from [here](https://www.vagrantup.com/downloads.html).
-* Install Vagrant by `sudo dpkg -i <PATH_TO_PKG_FILE>`
-* Install VirtualBox by `sudo apt-get install virtualbox virtualbox-dkms virtualbox-qt`
-* Reboot your computer after virutalbox installation finished
-* Download and install VirtualBox Extension Pack from [here](https://www.virtualbox.org/wiki/Downloads).
-* Then [set up USB for VirtualBox](https://help.ubuntu.com/community/VirtualBox/USB) by `sudo adduser <USERNAME> vboxusers`
-* Re-login or restart your PC.
-* Make sure you enable Intel VT-x and VT-d in BIOS.
+* Download [Vagrant's Debian package](https://www.vagrantup.com/downloads.html).
+* Install Vagrant using this: `sudo dpkg -i <PATH_TO_PKG_FILE>`
+* Install VirtualBox using this: `sudo apt-get install virtualbox virtualbox-dkms virtualbox-qt`
+* Reboot your computer after the Virtualbox installation has finished.
+* Download and install the [VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads).
+* [Set up the USB for VirtualBox](https://help.ubuntu.com/community/VirtualBox/USB) using the following command: `sudo adduser <USERNAME> vboxusers`
+* Re-login or restart your computer.
+* Make sure you enable Intel VT-x and VT-d in the BIOS.
 
 ## Mac OS X
 
 * Install [Brew Cask](http://caskroom.io/).
-* Install Vagrant by `sudo brew cask install vagrant; sudo brew cask install vagrant-manager`
-* Install VirtualBox by `sudo brew cask install virtualbox`
-* Install VirtualBox Extension Pack by `sudo brew cask install virtualbox-extension-pack`
-* Make sure you enable Intel VT-x and VT-d in BIOS.
+* Install Vagrant using this: `sudo brew cask install vagrant; sudo brew cask install vagrant-manager`
+* Install VirtualBox using this: `sudo brew cask install virtualbox`
+* Install the VirtualBox Extension Pack using the following: `sudo brew cask install virtualbox-extension-pack`
+* Make sure you enable Intel VT-x and VT-d in the BIOS.
 
-## Windows (experimental) 
-* Install the Windows version of git
-   * Install the bash shell
-   * Do not let git change the line ending symbol to windows format
-* Install Vagrant for Windows
-* Install Virtualbox for Windows
+## Windows (experimental)
+
+* Install the [Windows version of Git](http://www.git-scm.com/download/win). Make sure that you don't let Git change the line ending symbol to windows format.
+* Install the [Windows bash shell](http://win-bash.sourceforge.net/).
+* Install [Vagrant for Windows](https://www.vagrantup.com/downloads.html).
+* Install [Virtualbox for Windows](https://www.virtualbox.org/wiki/Downloads).
 * Run `launch.sh` in PowerShell or git-bash
-* Make sure you enable Intel VT-x and VT-d in BIOS.
-* If your VirtualBox VM failed to start, try enabling "Hyper-V" in VirtualBox > Settings > System > Accleration > Paravirtualization Interface.
+* Make sure you enable Intel VT-x and VT-d in the BIOS.
+* If your VirtualBox VM failed to start, try enabling *Hyper-V* in *VirtualBox > Settings > System > Accleration > Paravirtualization Interface*.
 
 ## Other Platforms
-You need to install [Vagrant](https://docs.vagrantup.com/v2/installation/index.html), see more detail from this [guide](https://docs.vagrantup.com/v2/installation/index.html).
 
-And you also need to install the [provider](https://docs.vagrantup.com/v2/providers/index.html) for Vagrant. We will use [VirtualBox](http://www.virtualbox.org/) as default.
+Whatever the case, you need to install [Vagrant](https://docs.vagrantup.com/v2/installation/index.html) — see the [Installing Vagrant](https://docs.vagrantup.com/v2/installation/index.html) guide for more details.
+
+You also need to install a VM [provider](https://docs.vagrantup.com/v2/providers/index.html) for Vagrant. We are assuming the use of [VirtualBox](http://www.virtualbox.org/) throughout our article.
 
 
 # Cloning the Repo
-Run following command for cloning this repo.
-```
-git clone <this repo's URL>
+
+After the environment has been set up, you need to clone the MozITP repo.
+
+Do so with the following command:
+
+``` bash
+$ git clone https://github.com/mozilla-b2g/MozITP.git
 ```
 
 And you can run `git pull` to get the latest version of this repo.
 
 
 # Usage
-## Start/Stop the VM
-* Add execute permissions
+
+Now you've set up the environment and cloned the repo, you can start using MozITP.
+
+> **Note**: The following commands should be run from inside the *MozITP* directory.
+
+## Setting permissions
+If you get any problems running the scripts, you need to make sure you have the necessary permissions set on the commands. Add execute permissions, for example:
 
 ```bash
 $ chmod u+x launch.sh
 ```
 
-* Launch VM
+## Launching the MozITP
+Launch MozITP with the following command:
 
 ```bash
 $ ./launch.sh
 ```
 
-A Vagrant VM will be launched.
-
-You should see something like this:
+At this point a Vagrant VM will be launched — you should see something like this:
 
 ![menu](https://raw.githubusercontent.com/Mozilla-TWQA/MozITP/master/menu.png)
 
-* Stop the VM
+## Stopping MozITP
+
+To stop the VM, running the following:
 
 ```bash
 $ ./bin/stop.sh
 ```
 
-* Reset the VM to factory default
+## Resetting to factory
+
+To reset the VM to the factory defaults, run this command:
 
 ```bash
 $ ./bin/reset_vm.sh
 ```
 
-* Update the VM
+## Updating the VM
+
+To update to the latest version of the VM, run the following:
 
 ```bash
 $ ./bin/update_vm.sh
 ```
 
+## GIJ (Gaia Integration Test / JS Marionette)
 
-## GIJ
-See **Supported Platforms** section for available targets.
+You can run the GIJ (Gaia integration tests in JavaScript) directly from inside MozITP, which is very useful for automation. See the **Supported Platforms** section for available targets.
 
-* Run GIJ (Gaia integration test in JavaScript) directly. This is very useful in automation.
+> **Warning**: Sometimes the test case itself has bugs, which makes the GIJ test fail. To verify if it's a GIJ platform bug or a test case bug, run `./test/gij_phone_mulet_sanity_test.sh` or `./test/gij_phone_device_sanity_test.sh` files, depending on whether you are running the tests on Mulet or a real device. If it passes, it could be a bug in the test case, not the platform.
 
-> Warning: sometimes the test case itself has bugs, which makes the GIJ test fail. To verify if it's a GIJ platform bug or a test case bug, run `./test/gij_phone_mulet_sanity_test.sh`. If it passes, it could be a bug in the test case, not the platform.
+### Running GIJ
+
+To run GIJ directly, run the following:
 
 ```bash
 $ ./launch.sh gij
 ```
 
-* Run GIJ on a specific app 
+To run GIJ just on a specific app, you'll need a command structure like the following:
 
 ```bash
 $ export APP=video; ./launch.sh gij # The `export` is important, don't miss it
 ```
 
-* Run GIJ on a specific test file
+To run GIJ on a specific test file:
 
 ```bash
-export TEST_FILES=apps/clock/test/marionette/hour_format_test.js 
-./launch.sh gij
+$ export TEST_FILES=apps/clock/test/marionette/hour_format_test.js 
+$ ./launch.sh gij
 ```
 
-* Run GIJ on device directly. The device must be connected through USB before you run the command
+### Running GIJ directly on a device
 
-> Warning: sometimes the test case itself has bugs, which makes the GIJ test fail. To verify if it's a GIJ platform bug or a test case bug, run `./test/gij_phone_device_sanity_test.sh`. If it passes, it could be a bug in the test case, not the platform.
+To run GIJ directly on the device. The device must be connected through USB before you run the command:
 
 ```bash
 $ ./launch.sh gij device
 ```
 
-* Using your own gaia repository
-If you already have a gaia repository, use the following commands:
+### Running GIJ with your own Gaia build
+
+If you already have a Gaia repository you want to test, you can use the following commands:
 
 ```bash
-export GAIA=/path/to/your/gaia
-./launch.sh
+$ export GAIA=/path/to/your/gaia
+$ ./launch.sh
 ```
 
-If you change your mind and want to use the latest gaia instead, you can 
-```
-./reset_vm.sh
-unset GAIA
-./launch.sh
-```
+If you change your mind and want to use the latest Gaia instead, you can do this:
 
-Or if you want to keep the VM, you can
-```
-unset GAIA
-./launch.sh
-
-# Remove the flag
-vagrant ssh -c "rm ~/.users_gaia_exists"
-
-# Restart the VM
-./bin/stop.sh
-./launch.sh
+```bash
+$ ./reset_vm.sh
+$ unset GAIA
+$ ./launch.sh
 ```
 
-## GIP
+Or if you want to keep the VM, you can do this:
+
+```bash
+$ unset GAIA
+$ ./launch.sh
+$ vagrant ssh -c "rm ~/.users_gaia_exists" # Remove the flag
+$ ./bin/stop.sh # Restart the VM
+$ ./launch.sh
+```
+
+## GIP (Python Gaia Integration Test)
+
 See **Supported Platforms** section for available targets.
 
-```
-./launch.sh gip 
+### Running GIP
+
+To run GIP, do the following:
+
+```bash
+$ ./launch.sh gip 
 ```
 
 ## Flashing
-* Have TaskCluster credentials
 
-For flashing the TaskCluster image (need credentials), please run `./bin/get_credentials.sh` before flashing.
+Let's look at how to flash a TaskCluster image onto your instance of MozITP.
 
-Then run `launch.sh` and select `Flashing B2G Image`, or just run `./launch.sh flash`.
+If you already have TaskCluster credentials:
 
-* Do not have TaskCluster credentials
+* For flashing the TaskCluster image (needs credentials), please run `./bin/get_credentials.sh` before flashing. 
+* Next, run `./launch.sh` and select *Flashing B2G Image*.
+* Or just run `./launch.sh flash`.
 
-You can use the B2G Installer Add-on, run `./launch.sh` and select `Enter Firefox b2g-installer Add-on` from the menu.
+If you don't have TaskCluster credentials:
+
+* You can use the B2G installer add-on to handle this.
+* Run `./launch.sh` and select *Enter Firefox b2g-installer Add-on* from the menu.
 
 
 ## Shared Folder
 
 You can put files/folders into **shared** folder.
 
-The **shared** folder will be pushed from host into VM when you run `./launch.sh`.
+* The **shared** folder will be pushed from host into VM when you run `./launch.sh`.
+* The **shared** folder will be pulled from VM to host when you exit the `./launch.sh` script, or when run `./bin/stop.sh`.
 
-The **shared** folder will be pulled from VM to host when you exit the `launch.sh` script, or when run `./bin/stop.sh`.
+The following table contains a summary of the commands:
 
 | Command             | From | To   |
 |---------------------|------|------|
@@ -187,31 +216,36 @@ The **shared** folder will be pulled from VM to host when you exit the `launch.s
 
 # Troubleshooting
 * To run `launch.sh` in jenkins or over SSH, use `xvfb-run ./launch.sh`, otherwise the `vagrant up` command will fail.
-* To use the USB device, add the user to the `vboxusers` group. 
+* To run tests on a device connected via USB device, you need to first add the user to the vboxusers group using the following command structure:
 
+```bash
+$ sudo adduser <your username> vboxusers
 ```
-sudo adduser <your username> vboxusers
-```
-* If you want to run USB device test in Jenkins, also add the `jenkins` user to the `vboxusers` group
+* If you want to run tests against USB-connected devices in Jenkins, also add the *jenkins* user to the *vboxusers* group.
 
 # Supported Platforms
+
+The following platforms are supported by MozITP:
+
 * Linux
 * OS X
 * Windows (experimental)
 * Flashable devices: Aries (Sony Z3C), Flame
 
+The following table shows the different environments that can be tested/emulated by MozITP, and how well specific tests currently work on those environments:
+
 | Platform       | GIJ          |  GIP  | Fuzz    | 
 |----------------|--------------|-------|---------|
 | Phone Mulet    | OK (headless)| OK    | 2015 Q1 |
 | Phone Device   | OK           | OK    | OK      |
-| Phone Emulator | Too slow     | by request | by request | 
-| TV Mulet       | 2015 Q1      | by request | by request |
-| TV Device      | by request   | by request | by request |
-| TV Emulator    | by request   | by request | by request |
+| Phone Emulator | Too slow     | by request* | by request* | 
+| TV Mulet       | 2015 Q1      | by request* | by request* |
+| TV Device      | by request*  | by request* | by request* |
+| TV Emulator    | by request*  | by request* | by request* |
 
-by request: If you need this comination, please open an issue or email us.
+\* This combination doesn't currently work. If you need it/want to help with getting it running, please file a bug or email us.
 
-#Related
+# See Also
 
 * [MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS/Automated_testing/MozITP)
 * [Wiki](https://wiki.mozilla.org/B2G/MozITP)
