@@ -170,6 +170,14 @@ $ ./bin/stop.sh # Restart the VM
 $ ./launch.sh
 ```
 
+### Running GIJ on TV mulet
+
+To run GIJ on TV mulet, run the following:
+
+```bash
+$ ./launch.sh gij-tv
+```
+
 ## GIP (Python Gaia Integration Test)
 
 See **Supported Platforms** section for available targets.
@@ -180,6 +188,18 @@ To run GIP, do the following:
 
 ```bash
 $ ./launch.sh gip 
+```
+
+## Fuzz
+
+The [MozCingi](https://github.com/ShakoHo/mozCingi), fuzz testing of B2G.
+
+### Running Fuzz
+
+To run fuzz testing, do the following:
+
+```bash
+$ ./launch.sh fuzz <testcases.zip>
 ```
 
 ## Flashing
@@ -236,10 +256,10 @@ The following table shows the different environments that can be tested/emulated
 
 | Platform       | GIJ          |  GIP  | Fuzz    | 
 |----------------|--------------|-------|---------|
-| Phone Mulet    | OK (headless)| OK    | 2015 Q1 |
+| Phone Mulet    | OK (headless)| OK    | OK      |
 | Phone Device   | OK           | OK    | OK      |
 | Phone Emulator | Too slow     | by request* | by request* | 
-| TV Mulet       | 2015 Q1      | by request* | by request* |
+| TV Mulet       | OK           | by request* | by request* |
 | TV Device      | by request*  | by request* | by request* |
 | TV Emulator    | by request*  | by request* | by request* |
 
