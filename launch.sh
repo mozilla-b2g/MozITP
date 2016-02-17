@@ -27,6 +27,10 @@ function mulet_test {
     ${VM_SHELL} "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; export TEST_MANIFEST=$TEST_MANIFEST; bash ~/MozITP/scripts/gij_phone_mulet.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER -oSendEnv=REPORTER
 }
 
+function tv_mulet_test {
+    ${VM_SHELL} "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; export TEST_MANIFEST=$TEST_MANIFEST; bash ~/MozITP/scripts/gij_tv_mulet.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER -oSendEnv=REPORTER
+}
+
 function device_test {
     ${VM_SHELL} "export APP=$APP; export TEST_FILES=$TEST_FILES; export REPORTER=${REPORTER:-spec}; bash ~/MozITP/scripts/gij_phone_device.sh" -- -oSendEnv=APP -oSendEnv=TEST_FILES -oSendEnv=REPORTER
 }
@@ -53,6 +57,9 @@ case $1 in
                 mulet_test
                 ;;
         esac
+        ;;
+    gij-tv)
+        tv_mulet_test
         ;;
     gip)
         case $2 in
