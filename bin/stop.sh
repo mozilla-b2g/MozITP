@@ -9,7 +9,7 @@ fi
 
 # Pull the shared folder from guest to host by scp. See "./util/simplefilter.list" for more detail.
 echo "Running scp to get the files from guest vm to host..."
-./util/simplefilter.py ./ ./util/.simplefilter.list | while read line; do vagrant scp default:~/MozITP/$line/* ./$line/; done
+./util/simplefilter.py ./ ./util/.simplefilter.list | while read line; do vagrant scp default:~/MozITP/$line ./; done
 
 vagrant halt
 
